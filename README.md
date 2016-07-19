@@ -1,5 +1,6 @@
 # SwitchButton
-
+Check this [article on our blog](https://king.github.io)
+## Custom attribute
 ## Usage
 step 1
 ```java
@@ -26,7 +27,10 @@ SwitchButton mSwitchbutton = (SwitchButton) findViewById(R.id.switchbutton);
             }
         });
 ```
-
+### Contact me
+* email:kingjavip@gmail.com
+* QQ:87049319
+* Weixin:darabbbit
 
 ### License
 
