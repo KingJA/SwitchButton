@@ -1,5 +1,5 @@
 # SwitchButton
-a simple switch widget.
+A simple switch widget.Please 'Star' if it's useful for you. :D
 Check this [article on our blog](https://king.github.io)
 ## Preview
 ![](https://github.com/KingJA/SwitchButton/blob/master/img/usage.gif)
