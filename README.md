@@ -4,7 +4,7 @@ Check this [article on our blog](https://king.github.io)
 ![](https://github.com/KingJA/SwitchButton/blob/master/img/usage.gif)
 ## Custom attribute
 | attribute | format | example  |
-| ------------- |:-------------:| -----:|
+| :------------- |:-------------| :-----|
 | left_text     | string | app:left_text="天猫" |
 | right_text      | string      | app:right_text="京东" |
 | stroke_radius | dimension      | app:stroke_radius="5dp" |
