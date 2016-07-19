@@ -2,7 +2,7 @@
 Check this [article on our blog](https://king.github.io)
 ## Custom attribute
 ## Usage
-step 1
+### step 1
 ```java
 <com.kingja.switchbutton.SwitchButton
         android:layout_width="match_parent"
@@ -16,7 +16,7 @@ step 1
         app:selected="right" />
 ```
 
-step 2
+### step 2
 ```java
 SwitchButton mSwitchbutton = (SwitchButton) findViewById(R.id.switchbutton);
         assert mSwitchbutton != null;
