@@ -13,14 +13,12 @@
         android:id="@+id/switchbutton"
         android:layout_width="match_parent"
         android:layout_height="30dp"
-        android:layout_centerInParent="true"
         app:left_text="大姐"
         app:right_text="大哥" />
 
     <com.kingja.switchbutton.SwitchButton
         android:layout_width="match_parent"
         android:layout_height="30dp"
-        android:layout_centerInParent="true"
         android:layout_marginTop="16dp"
         app:left_text="好帅"
         app:right_text="路人"
@@ -31,7 +29,6 @@
     <com.kingja.switchbutton.SwitchButton
         android:layout_width="match_parent"
         android:layout_height="30dp"
-        android:layout_centerInParent="true"
         android:layout_marginLeft="80dp"
         android:layout_marginRight="80dp"
         android:layout_marginTop="16dp"
@@ -46,19 +43,18 @@
     <com.kingja.switchbutton.SwitchButton
         android:layout_width="match_parent"
         android:layout_height="30dp"
-        android:layout_centerInParent="true"
         android:layout_marginTop="16dp"
         app:left_text="苍老师"
         app:right_text="凤姐"
         app:selected="right"
         app:selected_color="@color/red"
+        app:stroke_width="2dp"
         app:stroke_radius="5dp"
         app:text_size="16sp" />
 
     <com.kingja.switchbutton.SwitchButton
         android:layout_width="160dp"
         android:layout_height="26dp"
-        android:layout_centerInParent="true"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="16dp"
         app:left_text="想想吧"
