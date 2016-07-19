@@ -1,5 +1,5 @@
 # SwitchButton
-** A simple switch widget. **
+### A simple switch widget.
 ** give me a `Star` if it's useful for you. ^ 。^ **
 
 ## Preview
