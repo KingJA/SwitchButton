@@ -1,4 +1,33 @@
 # SwitchButton
+
+## Usage
+step 1
+```java
+<com.kingja.switchbutton.SwitchButton
+        android:layout_width="match_parent"
+        android:id="@+id/switchbutton"
+        android:layout_height="30dp"
+        app:left_text="天猫"
+        app:right_text="京东"
+        app:stroke_radius="5dp"
+        app:text_size="16sp"
+        app:selected_color="@color/red"
+        app:selected="right" />
+```
+
+step 2
+```java
+SwitchButton mSwitchbutton = (SwitchButton) findViewById(R.id.switchbutton);
+        assert mSwitchbutton != null;
+        mSwitchbutton.setOnSwitchListener(new SwitchButton.OnSwitchListener() {
+            @Override
+            public void onSwitch(boolean isLeft) {
+                //do something
+            }
+        });
+```
+
+
 ### License
 
     Copyright 2016 KingJA
