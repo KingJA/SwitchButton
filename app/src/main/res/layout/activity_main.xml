@@ -1,14 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.kingja.switchbutton.MainActivity">
+    tools:context="com.kingja.switchbutton.MainActivity"
+    android:orientation="vertical"
+    android:padding="16dp">
 
     <com.kingja.switchbutton.SwitchButton
-        android:layout_margin="16dp"
+        android:id="@+id/switchbutton"
         android:layout_centerInParent="true"
         android:layout_width="match_parent"
         android:layout_height="30dp"
         />
-</RelativeLayout>
+
+    <com.kingja.switchbutton.SwitchButton
+        android:layout_marginTop="16dp"
+        android:layout_centerInParent="true"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        app:left_text="天猫"
+        app:right_text="京东"
+        app:stroke_radius="5dp"
+        app:text_size="16sp"
+        app:selected_color="@color/red"
+        app:selected="right" />
+
+    <com.kingja.switchbutton.SwitchButton
+        android:layout_marginTop="16dp"
+        android:layout_centerInParent="true"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        app:left_text="本地"
+        app:right_text="SD卡"
+        app:stroke_radius="0dp"
+        app:selected_color="@color/blue" />
+
+    <com.kingja.switchbutton.SwitchButton
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="80dp"
+        android:layout_marginRight="80dp"
+        android:layout_centerInParent="true"
+        android:layout_width="match_parent"
+        android:layout_height="24dp"
+        app:left_text="已读"
+        app:right_text="未读"
+        app:stroke_radius="0dp"
+        app:selected_color="@color/yellow"
+        app:text_size="14sp"
+        app:selected="right"
+        app:stroke_width="2dp" />
+
+    <com.kingja.switchbutton.SwitchButton
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="16dp"
+        android:layout_centerInParent="true"
+        android:layout_width="80dp"
+        android:layout_height="24dp"
+        app:left_text="ON"
+        app:right_text="OFF"
+        app:stroke_radius="0dp"
+        app:selected_color="@color/orange"
+        app:text_size="12sp" />
+</LinearLayout>
