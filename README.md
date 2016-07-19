@@ -1,6 +1,19 @@
 # SwitchButton
-Check this [article on our blog](https://king.github.io)
+A simple switch widget.`Star` it if it's useful for you. 
+
+## Preview
+![](https://github.com/KingJA/SwitchButton/blob/master/img/usage.gif)
 ## Custom attribute
+| attribute | format | example  |
+| :------------- |:-------------| :-----|
+| left_text     | string | app:left_text="天猫" |
+| right_text      | string      | app:right_text="京东" |
+| stroke_radius | dimension      | app:stroke_radius="5dp" |
+| stroke_width | dimension      | app:stroke_width="2dp" |
+| text_size | dimension      | app:text_size="16sp" |
+| selected_color | color/reference     | app:selected_color="@color/red" |
+| selected | flag     | app:selected="right" |
+
 ## Usage
 ### step 1
 ```java
@@ -11,6 +24,7 @@ Check this [article on our blog](https://king.github.io)
         app:left_text="天猫"
         app:right_text="京东"
         app:stroke_radius="5dp"
+        app:stroke_width="2dp"  
         app:text_size="16sp"
         app:selected_color="@color/red"
         app:selected="right" />
@@ -28,9 +42,11 @@ SwitchButton mSwitchbutton = (SwitchButton) findViewById(R.id.switchbutton);
         });
 ```
 ## Contact me
+Any questions,Welcome to contact me.
 * email:kingjavip@gmail.com
 * QQ:87049319
 * Weixin:darabbbit
+* [My blog](https://kingja.github.io)
 
 ## License
 
