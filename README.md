@@ -1,6 +1,6 @@
 # SwitchButton
 ### A simple switch widget.
-** give me a `Star` if it's useful for you. ^ 。^ **
+### `Star` it if it's useful for you. 
 
 ## Preview
 ![](https://github.com/KingJA/SwitchButton/blob/master/img/usage.gif)
@@ -43,6 +43,7 @@ SwitchButton mSwitchbutton = (SwitchButton) findViewById(R.id.switchbutton);
         });
 ```
 ## Contact me
+Any questions,Welcome to contact me.
 * email:kingjavip@gmail.com
 * QQ:87049319
 * Weixin:darabbbit
