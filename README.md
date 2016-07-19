@@ -1,6 +1,6 @@
 # SwitchButton
-A simple switch widget.Please 'Star' if it's useful for you. :D
-Check this [article on our blog](https://king.github.io)
+A simple switch widget.Please `Star` if it's useful for you. ^ 。^
+
 ## Preview
 ![](https://github.com/KingJA/SwitchButton/blob/master/img/usage.gif)
 ## Custom attribute
@@ -45,6 +45,7 @@ SwitchButton mSwitchbutton = (SwitchButton) findViewById(R.id.switchbutton);
 * email:kingjavip@gmail.com
 * QQ:87049319
 * Weixin:darabbbit
+* [My blog](https://kingja.github.io)
 
 ## License
 
