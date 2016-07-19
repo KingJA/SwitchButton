@@ -1,5 +1,5 @@
 # SwitchButton
-> A simple switch widget.Please `Star` if it's useful for you. ^ 。^
+**A simple switch widget.Please `Star` if it's useful for you. ^ 。^**
 
 ## Preview
 ![](https://github.com/KingJA/SwitchButton/blob/master/img/usage.gif)
