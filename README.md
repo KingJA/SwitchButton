@@ -1,5 +1,7 @@
 # SwitchButton
 Check this [article on our blog](https://king.github.io)
+## Preview
+![](https://github.com/KingJA/SwitchButton/blob/master/img/usage.gif)
 ## Custom attribute
 ## Usage
 ### step 1
