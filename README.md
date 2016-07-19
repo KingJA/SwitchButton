@@ -3,21 +3,15 @@ Check this [article on our blog](https://king.github.io)
 ## Preview
 ![](https://github.com/KingJA/SwitchButton/blob/master/img/usage.gif)
 ## Custom attribute
-* 
-* 
-* 
-* app:text_size="16sp"
-* app:selected_color="@color/red"
-* app:selected="right" 
-* 
-| attribute        | format           | example  |
+| attribute | format | example  |
 | ------------- |:-------------:| -----:|
 | left_text     | string | app:left_text="天猫" |
 | right_text      | string      | app:right_text="京东" |
 | stroke_radius | dimension      | app:stroke_radius="5dp" |
 | text_size | dimension      | app:text_size="16sp" |
-| selected_color | color|reference     | app:selected_color="@color/red" |
+| selected_color | color/reference     | app:selected_color="@color/red" |
 | selected | flag     | app:selected="right" |
+
 ## Usage
 ### step 1
 ```java
