@@ -4,63 +4,66 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.kingja.switchbutton.MainActivity"
+    android:gravity="center"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="16dp"
+    tools:context="com.kingja.switchbutton.MainActivity">
 
     <com.kingja.switchbutton.SwitchButton
         android:id="@+id/switchbutton"
-        android:layout_centerInParent="true"
         android:layout_width="match_parent"
         android:layout_height="30dp"
-        />
+        android:layout_centerInParent="true"
+        app:left_text="大姐"
+        app:right_text="大哥" />
 
     <com.kingja.switchbutton.SwitchButton
-        android:layout_marginTop="16dp"
-        android:layout_centerInParent="true"
         android:layout_width="match_parent"
         android:layout_height="30dp"
-        app:left_text="天猫"
-        app:right_text="京东"
-        app:stroke_radius="5dp"
-        app:text_size="16sp"
-        app:selected_color="@color/red"
-        app:selected="right" />
+        android:layout_centerInParent="true"
+        android:layout_marginTop="16dp"
+        app:left_text="好帅"
+        app:right_text="路人"
+        app:selected="right"
+        app:selected_color="@color/blue"
+        app:stroke_radius="0dp" />
 
     <com.kingja.switchbutton.SwitchButton
-        android:layout_marginTop="16dp"
-        android:layout_centerInParent="true"
         android:layout_width="match_parent"
         android:layout_height="30dp"
-        app:left_text="本地"
-        app:right_text="SD卡"
-        app:stroke_radius="0dp"
-        app:selected_color="@color/blue" />
-
-    <com.kingja.switchbutton.SwitchButton
-        android:layout_marginTop="16dp"
+        android:layout_centerInParent="true"
         android:layout_marginLeft="80dp"
         android:layout_marginRight="80dp"
-        android:layout_centerInParent="true"
-        android:layout_width="match_parent"
-        android:layout_height="24dp"
-        app:left_text="已读"
-        app:right_text="未读"
-        app:stroke_radius="0dp"
+        android:layout_marginTop="16dp"
+        app:left_text="Unstar"
+        app:right_text="Star"
         app:selected_color="@color/yellow"
-        app:text_size="14sp"
-        app:selected="right"
-        app:stroke_width="2dp" />
+        app:stroke_radius="0dp"
+        app:stroke_width="2dp"
+        app:text_size="14sp" />
+
 
     <com.kingja.switchbutton.SwitchButton
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="16dp"
+        app:left_text="苍老师"
+        app:right_text="凤姐"
+        app:selected="right"
+        app:selected_color="@color/red"
+        app:stroke_radius="5dp"
+        app:text_size="16sp" />
+
+    <com.kingja.switchbutton.SwitchButton
+        android:layout_width="160dp"
+        android:layout_height="26dp"
+        android:layout_centerInParent="true"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="16dp"
-        android:layout_centerInParent="true"
-        android:layout_width="80dp"
-        android:layout_height="24dp"
-        app:left_text="ON"
-        app:right_text="OFF"
-        app:stroke_radius="0dp"
+        app:left_text="想想吧"
+        app:right_text="抱回家"
         app:selected_color="@color/orange"
+        app:stroke_radius="12dp"
         app:text_size="12sp" />
 </LinearLayout>

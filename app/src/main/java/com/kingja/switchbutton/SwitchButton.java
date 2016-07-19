@@ -190,9 +190,6 @@ public class SwitchButton extends View {
      */
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        if (onSwitchListener == null) {
-            return true;
-        }
         if (event.getAction() == MotionEvent.ACTION_UP) {
             if (event.getX() > 0 && event.getX() < mWidth / 2) {
                 if (isLeft) {
@@ -205,8 +202,11 @@ public class SwitchButton extends View {
                 }
                 isLeft = false;
             }
-            onSwitchListener.onSwitch(isLeft);
             invalidate();
+            if (onSwitchListener != null) {
+                onSwitchListener.onSwitch(isLeft);
+            }
+
         }
         return true;
     }
