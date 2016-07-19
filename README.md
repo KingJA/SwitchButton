@@ -27,12 +27,12 @@ SwitchButton mSwitchbutton = (SwitchButton) findViewById(R.id.switchbutton);
             }
         });
 ```
-### Contact me
+## Contact me
 * email:kingjavip@gmail.com
 * QQ:87049319
 * Weixin:darabbbit
 
-### License
+## License
 
     Copyright 2016 KingJA
 
