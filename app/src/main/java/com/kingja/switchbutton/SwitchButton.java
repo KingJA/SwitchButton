@@ -134,7 +134,7 @@ public class SwitchButton extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         if (mStrokeRadius == 0) {
-            mStrokeWidth = 0;
+            mStrokeWidth=0;
         }
         float left = mStrokeWidth * 0.5f;
         float top = mStrokeWidth * 0.5f;
@@ -190,6 +190,9 @@ public class SwitchButton extends View {
      */
     @Override
     public boolean onTouchEvent(MotionEvent event) {
+        if (onSwitchListener == null) {
+            return true;
+        }
         if (event.getAction() == MotionEvent.ACTION_UP) {
             if (event.getX() > 0 && event.getX() < mWidth / 2) {
                 if (isLeft) {
@@ -202,11 +205,8 @@ public class SwitchButton extends View {
                 }
                 isLeft = false;
             }
+            onSwitchListener.onSwitch(isLeft);
             invalidate();
-            if (onSwitchListener != null) {
-                onSwitchListener.onSwitch(isLeft);
-            }
-
         }
         return true;
     }
