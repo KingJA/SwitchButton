@@ -39,7 +39,7 @@ import java.util.List;
  * Email:kingjavip@gmail.com
  */
 public class SwitchMultiButton extends View {
-//    private final String TAG = getClass().getSimpleName();
+    private final String TAG = getClass().getSimpleName();
     private Paint mStrokePaint;
     private Paint mFillPaint;
     private int mWidth;
