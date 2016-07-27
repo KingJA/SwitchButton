@@ -9,7 +9,6 @@
     android:padding="16dp">
 
     <com.kingja.switchbutton.SwitchButton
-        android:visibility="gone"
         android:id="@+id/switchbutton"
         android:layout_centerInParent="true"
         android:layout_width="match_parent"
@@ -73,42 +72,27 @@
     <com.kingja.switchbutton.SwitchMultiButton
         android:id="@+id/switchmultibutton"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="16dp"
-        android:layout_centerInParent="true"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        app:strokeRadius="20sp"
-        app:strokeWidth="2sp"
-        app:selectedTab="0"
-        app:tabNum="5"
-        app:selectedColor="#021cc7"
-        app:textSize="14sp"
-        />
-    <com.kingja.switchbutton.SwitchMultiButton
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="14dp"
         android:layout_centerInParent="true"
         android:layout_width="match_parent"
         android:layout_height="30dp"
-        app:strokeRadius="15sp"
-        app:strokeWidth="2sp"
-        app:selectedTab="0"
-        app:tabNum="3"
-        app:selectedColor="#1a681b"
-        app:textSize="14sp"
-        />
-    <com.kingja.switchbutton.SwitchMultiButton
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="16dp"
-        android:layout_centerInParent="true"
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        app:strokeRadius="15sp"
-        app:strokeWidth="2sp"
+        app:strokeRadius="5dp"
+        app:strokeWidth="1dp"
         app:selectedTab="1"
-        app:tabNum="2"
-        app:selectedColor="#681a42"
+        app:selectedColor="#eb7b00"
         app:textSize="14sp"
         />
+    <!--<com.kingja.switchbutton.SwitchMultiButton-->
+        <!--android:layout_gravity="center_horizontal"-->
+        <!--android:layout_marginTop="16dp"-->
+        <!--android:layout_centerInParent="true"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="30dp"-->
+        <!--app:strokeRadius="15sp"-->
+        <!--app:strokeWidth="2sp"-->
+        <!--app:selectedTab="0"-->
+        <!--app:selectedColor="#1a681b"-->
+        <!--app:textSize="14sp"-->
+        <!--/>-->
 
 </LinearLayout>

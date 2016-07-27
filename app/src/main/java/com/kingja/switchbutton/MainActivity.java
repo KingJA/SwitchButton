@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
+import java.util.Arrays;
+
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
@@ -24,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
 
         SwitchMultiButton switchmultibutton = (SwitchMultiButton) findViewById(R.id.switchmultibutton);
         assert switchmultibutton != null;
+        switchmultibutton.setText(Arrays.asList("我是房东", "我是管理员", "我是房客"));
         switchmultibutton.setOnSwitchListener(new SwitchMultiButton.OnSwitchListener() {
             @Override
             public void onSwitch(int position) {

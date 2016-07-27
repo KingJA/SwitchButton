@@ -1,3 +1,7 @@
 <component name="CopyrightManager">
-  <settings default="" />
+  <settings default="LICENSE-2.0">
+    <module2copyright>
+      <element module="Project Files" copyright="LICENSE-2.0" />
+    </module2copyright>
+  </settings>
 </component>
