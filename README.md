@@ -1,5 +1,5 @@
 # SwitchButton
-A simple switch widget.CLICK THE ***STAR***  if it's useful for you.
+A smart switchable button,support multiple tabs. CLICK THE ***STAR***  if it's useful for you.
 
 ## Preview
 ![](https://github.com/KingJA/SwitchButton/blob/master/img/usage.gif)
