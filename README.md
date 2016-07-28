@@ -12,7 +12,7 @@ A simple switch widget.CLICK THE *STAR*  if it's useful for you.
 | selectedColor | color/reference     | app:selected_color="@color/red" |
 | selectedTab | integer     | app:selected="1" |
 
-![](https://github.com/KingJA/SwitchButton/blob/master/img/usage.gif)
+![](https://github.com/KingJA/SwitchButton/blob/master/img/mark.png)
 
 ## Usage
 ### step 1
