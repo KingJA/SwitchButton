@@ -326,7 +326,7 @@ public class SwitchMultiButton extends View {
             invalidate();
             return this;
         } else {
-            throw new IllegalArgumentException("the size of list should more then 1");
+            throw new IllegalArgumentException("the size of list should greater then 1");
         }
 
     }
