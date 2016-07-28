@@ -3,8 +3,8 @@
     <declare-styleable name="SwitchMultiButton">
         <attr name="strokeRadius" format="dimension" />
         <attr name="strokeWidth" format="dimension" />
+        <attr name="textSize" format="dimension" />
         <attr name="selectedTab" format="integer" />
         <attr name="selectedColor" format="color|reference" />
-        <attr name="textSize" format="dimension" />
     </declare-styleable>
 </resources>
