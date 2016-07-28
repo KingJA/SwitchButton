@@ -46,25 +46,16 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-//        ((SwitchMultiButton) findViewById(R.id.switchmultibutton1)).setText(tabTextList1).setOnSwitchListener(onSwitchListener);
-//        ((SwitchMultiButton) findViewById(R.id.switchmultibutton2)).setText(tabTextList2).setOnSwitchListener(onSwitchListener);
-//        ((SwitchMultiButton) findViewById(R.id.switchmultibutton3)).setText(tabTextList3).setOnSwitchListener(onSwitchListener);
-//        ((SwitchMultiButton) findViewById(R.id.switchmultibutton4)).setText(tabTextList4).setOnSwitchListener(onSwitchListener);
-
-        SwitchMultiButton mSwitchMultiButton = (SwitchMultiButton) findViewById(R.id.switchmultibutton2);
-        assert mSwitchMultiButton != null;
-        mSwitchMultiButton.setText(tabTextList2).setOnSwitchListener(new SwitchMultiButton.OnSwitchListener() {
-            @Override
-            public void onSwitch(int position, String tabText) {
-                Toast.makeText(MainActivity.this, tabText, Toast.LENGTH_SHORT).show();
-            }
-        });
+        ((SwitchMultiButton) findViewById(R.id.switchmultibutton1)).setText(tabTextList1).setOnSwitchListener(onSwitchListener);
+        ((SwitchMultiButton) findViewById(R.id.switchmultibutton2)).setText(tabTextList2).setOnSwitchListener(onSwitchListener);
+        ((SwitchMultiButton) findViewById(R.id.switchmultibutton3)).setText(tabTextList3).setOnSwitchListener(onSwitchListener);
+        ((SwitchMultiButton) findViewById(R.id.switchmultibutton4)).setText(tabTextList4).setOnSwitchListener(onSwitchListener);
     }
 
-//    private SwitchMultiButton.OnSwitchListener onSwitchListener = new SwitchMultiButton.OnSwitchListener() {
-//        @Override
-//        public void onSwitch(int position, String tabText) {
-//            Toast.makeText(MainActivity.this, tabText, Toast.LENGTH_SHORT).show();
-//        }
-//    };
+    private SwitchMultiButton.OnSwitchListener onSwitchListener = new SwitchMultiButton.OnSwitchListener() {
+        @Override
+        public void onSwitch(int position, String tabText) {
+            Toast.makeText(MainActivity.this, tabText, Toast.LENGTH_SHORT).show();
+        }
+    };
 }
