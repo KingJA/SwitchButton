@@ -23,6 +23,8 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.RectF;
+import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.annotation.NonNull;
 import android.text.TextPaint;
 import android.util.AttributeSet;
@@ -329,5 +331,33 @@ public class SwitchMultiButton extends View {
             throw new IllegalArgumentException("the size of list should greater then 1");
         }
 
+    }
+    /*======================================save and restore======================================*/
+
+    @Override
+    protected Parcelable onSaveInstanceState() {
+        Bundle bundle = new Bundle();
+        bundle.putParcelable("View", super.onSaveInstanceState());
+        bundle.putFloat("StrokeRadius", mStrokeRadius);
+        bundle.putFloat("StrokeWidth", mStrokeWidth);
+        bundle.putFloat("TextSize", mTextSize);
+        bundle.putInt("SelectedColor", mSelectedColor);
+        bundle.putInt("SelectedTab", mSelectedTab);
+        return bundle;
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Parcelable state) {
+        if (state instanceof Bundle) {
+            Bundle bundle = (Bundle) state;
+            mStrokeRadius = bundle.getInt("StrokeRadius");
+            mStrokeWidth = bundle.getInt("StrokeWidth");
+            mTextSize = bundle.getInt("TextSize");
+            mSelectedColor = bundle.getInt("SelectedColor");
+            mSelectedTab = bundle.getInt("SelectedTab");
+            super.onRestoreInstanceState(bundle.getParcelable("View"));
+        } else {
+            super.onRestoreInstanceState(state);
+        }
     }
 }
