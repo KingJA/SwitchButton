@@ -1,76 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.kingja.switchbutton.MainActivity"
     android:orientation="vertical"
     android:padding="16dp">
 
-    <com.kingja.switchbutton.SwitchButton
-        android:id="@+id/switchbutton"
-        android:layout_centerInParent="true"
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        />
-    <com.kingja.switchbutton.SwitchButton
-        android:visibility="gone"
-        android:layout_marginTop="16dp"
-        android:layout_centerInParent="true"
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        app:left_text="天猫"
-        app:right_text="京东"
-        app:stroke_radius="5dp"
-        app:text_size="16sp"
-        app:selected_color="@color/red"
-        app:selected="right"
-        />
-    <com.kingja.switchbutton.SwitchButton
-        android:visibility="gone"
-        android:layout_marginTop="16dp"
-        android:layout_centerInParent="true"
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        app:left_text="本地"
-        app:right_text="SD卡"
-        app:stroke_radius="0dp"
-        app:selected_color="@color/blue"
-        />
-
-    <com.kingja.switchbutton.SwitchButton
-        android:visibility="gone"
-        android:layout_marginTop="16dp"
-        android:layout_marginLeft="80dp"
-        android:layout_marginRight="80dp"
-        android:layout_centerInParent="true"
-        android:layout_width="match_parent"
-        android:layout_height="24dp"
-        app:left_text="已读"
-        app:right_text="未读"
-        app:stroke_radius="0dp"
-        app:selected_color="@color/yellow"
-        app:text_size="14sp"
-        app:selected="right"
-        app:stroke_width="2dp"
-        />
-
-    <com.kingja.switchbutton.SwitchButton
-        android:visibility="gone"
+    <lib.kingja.switchbutton.SwitchMultiButton
+        android:id="@+id/switchmultibutton1"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="14dp"
         android:layout_centerInParent="true"
-        android:layout_width="80dp"
-        android:layout_height="24dp"
-        app:left_text="ON"
-        app:right_text="OFF"
-        app:stroke_radius="0dp"
-        app:selected_color="@color/orange"
-        app:text_size="12sp"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        app:strokeWidth="1dp"
+        app:selectedTab="0"
+        app:selectedColor="#1c7626"
+        app:textSize="14sp"
         />
-    <com.kingja.switchbutton.SwitchMultiButton
-        android:id="@+id/switchmultibutton"
+
+    <lib.kingja.switchbutton.SwitchMultiButton
+        android:id="@+id/switchmultibutton2"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="14dp"
+        android:layout_centerInParent="true"
+        android:layout_width="300dp"
+        android:layout_height="30dp"
+        app:strokeRadius="5dp"
+        app:strokeWidth="1dp"
+        app:selectedTab="1"
+        app:selectedColor="#eb7b00"
+        app:textSize="14sp" />
+
+    <lib.kingja.switchbutton.SwitchMultiButton
+        android:id="@+id/switchmultibutton3"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="14dp"
         android:layout_centerInParent="true"
@@ -78,21 +41,20 @@
         android:layout_height="30dp"
         app:strokeRadius="5dp"
         app:strokeWidth="1dp"
-        app:selectedTab="1"
-        app:selectedColor="#eb7b00"
-        app:textSize="14sp"
-        />
-    <!--<com.kingja.switchbutton.SwitchMultiButton-->
-        <!--android:layout_gravity="center_horizontal"-->
-        <!--android:layout_marginTop="16dp"-->
-        <!--android:layout_centerInParent="true"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="30dp"-->
-        <!--app:strokeRadius="15sp"-->
-        <!--app:strokeWidth="2sp"-->
-        <!--app:selectedTab="0"-->
-        <!--app:selectedColor="#1a681b"-->
-        <!--app:textSize="14sp"-->
-        <!--/>-->
+        app:selectedTab="0"
+        app:selectedColor="#86389c"
+        app:textSize="14sp" />
+
+    <lib.kingja.switchbutton.SwitchMultiButton
+        android:id="@+id/switchmultibutton4"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="14dp"
+        android:layout_centerInParent="true"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        app:strokeRadius="14dp"
+        app:strokeWidth="2dp"
+        app:selectedColor="#e12251"
+        app:textSize="14sp" />
 
 </LinearLayout>

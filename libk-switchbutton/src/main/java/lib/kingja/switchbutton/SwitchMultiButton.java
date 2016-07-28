@@ -15,7 +15,7 @@
  *
  */
 
-package com.kingja.switchbutton;
+package lib.kingja.switchbutton;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -23,6 +23,7 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.RectF;
+import android.support.annotation.NonNull;
 import android.text.TextPaint;
 import android.util.AttributeSet;
 import android.util.TypedValue;
@@ -33,13 +34,24 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * Description：SwitchMultiButton
+ * Description：A smart switchable button,support multiple tabs.
  * Create Time：2016/7/27 14:57
  * Author:KingJA
  * Email:kingjavip@gmail.com
  */
 public class SwitchMultiButton extends View {
-    private final String TAG = getClass().getSimpleName();
+
+    /*default value*/
+    private List<String> mTabTextList = Arrays.asList("R", "L");
+    private int mTabNum = mTabTextList.size();
+    private static final float DEFAULT_WIDTH_DP = 280f;
+    private static final float DEFAULT_HEIGHT_DP = 30f;
+    private static final float STROKE_RADIUS = 0;
+    private static final float STROKE_WIDTH = 2;
+    private static final float TEXT_SIZE = 14;
+    private static final int SELECTED_COLOR = 0xffeb7b00;
+    private static final int SELECTED_TAB = 0;
+    /*other*/
     private Paint mStrokePaint;
     private Paint mFillPaint;
     private int mWidth;
@@ -52,10 +64,9 @@ public class SwitchMultiButton extends View {
     private int mSelectedColor;
     private float mTextSize;
     private int mSelectedTab;
-    private List<String> mTabTextList = Arrays.asList("Tab one", "Tab two");
-    private int mTabNum=mTabTextList.size();
     private float perWidth;
     private float mTextHeightOffset;
+
 
     public SwitchMultiButton(Context context) {
         this(context, null);
@@ -71,18 +82,22 @@ public class SwitchMultiButton extends View {
         initPaint();
     }
 
-
+    /**
+     * get the values of attributes
+     */
     private void initAttrs(Context context, AttributeSet attrs) {
         TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.SwitchMultiButton);
-        mStrokeRadius = typedArray.getDimension(R.styleable.SwitchMultiButton_strokeRadius, dp2px(10));
-        mStrokeWidth = typedArray.getDimension(R.styleable.SwitchMultiButton_strokeWidth, dp2px(2));
-        mTextSize = typedArray.getDimension(R.styleable.SwitchMultiButton_textSize, sp2px(14));
-        mSelectedColor = typedArray.getColor(R.styleable.SwitchMultiButton_selectedColor, 0xffeb7b00);
-        mSelectedTab = typedArray.getInteger(R.styleable.SwitchMultiButton_selectedTab, 0);
+        mStrokeRadius = typedArray.getDimension(R.styleable.SwitchMultiButton_strokeRadius, dp2px(STROKE_RADIUS));
+        mStrokeWidth = typedArray.getDimension(R.styleable.SwitchMultiButton_strokeWidth, dp2px(STROKE_WIDTH));
+        mTextSize = typedArray.getDimension(R.styleable.SwitchMultiButton_textSize, sp2px(TEXT_SIZE));
+        mSelectedColor = typedArray.getColor(R.styleable.SwitchMultiButton_selectedColor, SELECTED_COLOR);
+        mSelectedTab = typedArray.getInteger(R.styleable.SwitchMultiButton_selectedTab, SELECTED_TAB);
         typedArray.recycle();
     }
 
-
+    /**
+     * define paints
+     */
     private void initPaint() {
         // round rectangle paint
         mStrokePaint = new Paint();
@@ -112,14 +127,15 @@ public class SwitchMultiButton extends View {
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        float DEFAULT_WIDTH_DP = 280f;
-        float DEFAULT_HEIGHT_DP = 30f;
         int defaultWidth = dp2px(DEFAULT_WIDTH_DP);
         int defaultHeight = dp2px(DEFAULT_HEIGHT_DP);
         setMeasuredDimension(getExpectSize(defaultWidth, widthMeasureSpec), getExpectSize(defaultHeight, heightMeasureSpec));
     }
 
-    public int getExpectSize(int size, int measureSpec) {
+    /**
+     * get expect size
+     */
+    private int getExpectSize(int size, int measureSpec) {
         int result = size;
         int specMode = MeasureSpec.getMode(measureSpec);
         int specSize = MeasureSpec.getSize(measureSpec);
@@ -140,13 +156,11 @@ public class SwitchMultiButton extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        if (mStrokeRadius == 0) {
-            mStrokeWidth = 0;
-        }
+        float offset = mStrokeRadius == 0 ? 0 : mStrokeWidth * 0.5f;
         float left = mStrokeWidth * 0.5f;
         float top = mStrokeWidth * 0.5f;
-        float right = mWidth - mStrokeWidth * 0.5f;
-        float bottom = mHeight - mStrokeWidth * 0.5f;
+        float right = mWidth - offset;
+        float bottom = mHeight - offset;
 
         //draw rounded rectangle
         canvas.drawRoundRect(new RectF(left, top, right, bottom), mStrokeRadius, mStrokeRadius, mStrokePaint);
@@ -177,7 +191,6 @@ public class SwitchMultiButton extends View {
                 //draw unselected text
                 canvas.drawText(tabText, 0.5f * perWidth * (2 * i + 1) - 0.5f * tabTextWidth, mHeight * 0.5f + mTextHeightOffset, mSelectedTextPaint);
             }
-
 
         }
 
@@ -217,17 +230,20 @@ public class SwitchMultiButton extends View {
     /**
      * convert dp to px
      */
-    protected int dp2px(float dp) {
+    protected int dp2px(@NonNull float dp) {
         return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, getResources().getDisplayMetrics());
     }
 
     /**
      * convert sp to px
      */
-    protected int sp2px(float sp) {
+    protected int sp2px(@NonNull float sp) {
         return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, sp, getResources().getDisplayMetrics());
     }
 
+    /**
+     * called after onMeasure
+     */
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         super.onSizeChanged(w, h, oldw, oldh);
@@ -246,6 +262,9 @@ public class SwitchMultiButton extends View {
         }
     }
 
+    /**
+     * receive the event when touched
+     */
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         if (event.getAction() == MotionEvent.ACTION_UP) {
@@ -257,7 +276,7 @@ public class SwitchMultiButton extends View {
                     }
                     mSelectedTab = i;
                     if (onSwitchListener != null) {
-                        onSwitchListener.onSwitch(i);
+                        onSwitchListener.onSwitch(i, mTabTextList.get(i));
                     }
                 }
             }
@@ -267,29 +286,48 @@ public class SwitchMultiButton extends View {
     }
 
     /*=========================================Interface=========================================*/
+
+    /**
+     * called when swtiched
+     */
     public interface OnSwitchListener {
-        void onSwitch(int position);
+        void onSwitch(int position, String tabText);
     }
 
-    public void setOnSwitchListener(OnSwitchListener onSwitchListener) {
+    public void setOnSwitchListener(@NonNull OnSwitchListener onSwitchListener) {
         this.onSwitchListener = onSwitchListener;
     }
 
     /*=========================================Set and Get=========================================*/
+
+    /**
+     * get position of selected tab
+     */
     public int getSelectedTab() {
         return mSelectedTab;
     }
 
-    public void setSelectedTab(int mSelectedTab) {
+    /**
+     * set selected tab
+     */
+    public SwitchMultiButton setSelectedTab(@NonNull int mSelectedTab) {
         this.mSelectedTab = mSelectedTab;
         invalidate();
+        return this;
     }
 
-    public void setText(List<String> list) {
+    /**
+     * set data for the switchbutton
+     */
+    public SwitchMultiButton setText(@NonNull List<String> list) {
         if (list != null && list.size() > 1) {
             this.mTabTextList = list;
             mTabNum = list.size();
             invalidate();
+            return this;
+        } else {
+            throw new IllegalArgumentException("the size of list should more then 1");
         }
+
     }
 }
