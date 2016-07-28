@@ -23,7 +23,7 @@ A simple switch widget.CLICK THE *STAR*  if it's useful for you.
         android:layout_height="30dp"
         app:strokeRadius="5dp"
         app:strokeWidth="1dp"
-        app:selectedTab="1"
+        app:selectedTab="0"
         app:selectedColor="#eb7b00"
         app:textSize="14sp" />
 ```
