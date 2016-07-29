@@ -15,7 +15,7 @@
         android:layout_marginTop="14dp"
         app:selectedColor="#1c7626"
         app:strokeRadius="0dp"
-        app:selectedTab="0"
+        app:selectedTab="1"
         app:strokeWidth="1dp"
         app:textSize="14sp" />
 
