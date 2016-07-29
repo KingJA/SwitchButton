@@ -58,4 +58,5 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(MainActivity.this, tabText, Toast.LENGTH_SHORT).show();
         }
     };
+
 }

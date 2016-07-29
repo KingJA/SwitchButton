@@ -107,7 +107,6 @@ public class SwitchMultiButton extends View {
         mStrokePaint.setStyle(Paint.Style.STROKE);
         mStrokePaint.setAntiAlias(true);
         mStrokePaint.setStrokeWidth(mStrokeWidth);
-        mStrokePaint.setStrokeJoin(Paint.Join.MITER);
         // selected paint
         mFillPaint = new Paint();
         mFillPaint.setColor(mSelectedColor);
@@ -123,7 +122,6 @@ public class SwitchMultiButton extends View {
         mUnselectedTextPaint.setTextSize(mTextSize);
         mUnselectedTextPaint.setColor(0xffffffff);
         mStrokePaint.setAntiAlias(true);
-
         mTextHeightOffset = -(mSelectedTextPaint.ascent() + mSelectedTextPaint.descent()) * 0.5f;
     }
 
@@ -158,11 +156,10 @@ public class SwitchMultiButton extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        float offset = mStrokeRadius == 0 ? 0 : mStrokeWidth * 0.5f;
         float left = mStrokeWidth * 0.5f;
         float top = mStrokeWidth * 0.5f;
-        float right = mWidth - offset;
-        float bottom = mHeight - offset;
+        float right = mWidth - mStrokeWidth * 0.5f;
+        float bottom = mHeight - mStrokeWidth * 0.5f;
 
         //draw rounded rectangle
         canvas.drawRoundRect(new RectF(left, top, right, bottom), mStrokeRadius, mStrokeRadius, mStrokePaint);
@@ -181,8 +178,8 @@ public class SwitchMultiButton extends View {
                     drawLeftPath(canvas, left, top, bottom);
 
                 } else if (i == mTabNum - 1) {
-
                     drawRightPath(canvas, top, right, bottom);
+
                 } else {
                     canvas.drawRect(new RectF(perWidth * i, top, perWidth * (i + 1), bottom), mFillPaint);
                 }
@@ -193,24 +190,7 @@ public class SwitchMultiButton extends View {
                 //draw unselected text
                 canvas.drawText(tabText, 0.5f * perWidth * (2 * i + 1) - 0.5f * tabTextWidth, mHeight * 0.5f + mTextHeightOffset, mSelectedTextPaint);
             }
-
         }
-
-    }
-
-    /**
-     * draw left path
-     */
-    private void drawRightPath(Canvas canvas, float top, float right, float bottom) {
-        Path rightPath = new Path();
-        rightPath.moveTo(right - mStrokeRadius, top);
-        rightPath.lineTo(right - perWidth, top);
-        rightPath.lineTo(right - perWidth, bottom);
-        rightPath.lineTo(right - mStrokeRadius, bottom);
-        rightPath.arcTo(new RectF(right - 2 * mStrokeRadius, bottom - 2 * mStrokeRadius, right, bottom), 90, -90);
-        rightPath.lineTo(right, top + mStrokeRadius);
-        rightPath.arcTo(new RectF(right - 2 * mStrokeRadius, top, right, top + 2 * mStrokeRadius), 0, -90);
-        canvas.drawPath(rightPath, mFillPaint);
     }
 
     /**
@@ -228,6 +208,21 @@ public class SwitchMultiButton extends View {
         leftPath.arcTo(new RectF(left, top, left + 2 * mStrokeRadius, top + 2 * mStrokeRadius), 180, 90);
         canvas.drawPath(leftPath, mFillPaint);
     }
+    /**
+     * draw left path
+     */
+    private void drawRightPath(Canvas canvas, float top, float right, float bottom) {
+        Path rightPath = new Path();
+        rightPath.moveTo(right - mStrokeRadius, top);
+        rightPath.lineTo(right - perWidth, top);
+        rightPath.lineTo(right - perWidth, bottom);
+        rightPath.lineTo(right - mStrokeRadius, bottom);
+        rightPath.arcTo(new RectF(right - 2 * mStrokeRadius, bottom - 2 * mStrokeRadius, right, bottom), 90, -90);
+        rightPath.lineTo(right, top + mStrokeRadius);
+        rightPath.arcTo(new RectF(right - 2 * mStrokeRadius, top, right, top + 2 * mStrokeRadius), 0, -90);
+        canvas.drawPath(rightPath, mFillPaint);
+    }
+
 
     /**
      * convert dp to px
