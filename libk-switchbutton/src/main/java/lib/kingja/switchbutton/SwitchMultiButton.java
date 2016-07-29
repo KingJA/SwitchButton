@@ -232,14 +232,14 @@ public class SwitchMultiButton extends View {
     /**
      * convert dp to px
      */
-    protected int dp2px(@NonNull float dp) {
+    protected int dp2px(float dp) {
         return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, getResources().getDisplayMetrics());
     }
 
     /**
      * convert sp to px
      */
-    protected int sp2px(@NonNull float sp) {
+    protected int sp2px(float sp) {
         return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, sp, getResources().getDisplayMetrics());
     }
 
@@ -312,7 +312,7 @@ public class SwitchMultiButton extends View {
     /**
      * set selected tab
      */
-    public SwitchMultiButton setSelectedTab(@NonNull int mSelectedTab) {
+    public SwitchMultiButton setSelectedTab(int mSelectedTab) {
         this.mSelectedTab = mSelectedTab;
         invalidate();
         return this;
@@ -322,7 +322,7 @@ public class SwitchMultiButton extends View {
      * set data for the switchbutton
      */
     public SwitchMultiButton setText(@NonNull List<String> list) {
-        if (list != null && list.size() > 1) {
+        if (list.size() > 1) {
             this.mTabTextList = list;
             mTabNum = list.size();
             invalidate();
