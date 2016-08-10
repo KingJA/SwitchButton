@@ -3,7 +3,7 @@
 .DS_Store
 /build
 /captures
-.gradle
+/.gradle
 .DS_Store # only needed under mac os
-.idea
+/.idea
 *.apk #optional
