@@ -33,6 +33,7 @@ import lib.kingja.switchbutton.SwitchMultiButton;
  * Create Time：2016/7/27 10:26
  * Author:KingJA
  * Email:kingjavip@gmail.com
+ * update:add into Jenkins
  */
 public class MainActivity extends AppCompatActivity {
 
