@@ -33,11 +33,11 @@ import lib.kingja.switchbutton.SwitchMultiButton;
  * Create Time：2016/7/27 10:26
  * Author:KingJA
  * Email:kingjavip@gmail.com
- * update:add into Jenkins 10:00
+ * update:add into Jenkins 16:23
  */
 public class MainActivity extends AppCompatActivity {
 
-    private List<String> tabTextList1 = Arrays.asList("才子", "帅哥", "大湿", "猛将兄");
+    private List<String> tabTextList1 = Arrays.asList("才子1", "帅哥", "大湿", "猛将兄");
     private List<String> tabTextList2 = Arrays.asList("点个Star", "狠心拒绝");
     private List<String> tabTextList3 = Arrays.asList("凤姐", "苍老师");
     private List<String> tabTextList4 = Arrays.asList("已经", "在家", "等你");
