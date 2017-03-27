@@ -174,8 +174,8 @@ public final class R {
 		public static final int seekBarStyle = 0x7f010091;
 		public static final int selectableItemBackground = 0x7f010058;
 		public static final int selectableItemBackgroundBorderless = 0x7f010059;
-		public static final int selectedColor = 0x7f0100c0;
-		public static final int selectedTab = 0x7f0100bf;
+		public static final int selectedColor = 0x7f0100c1;
+		public static final int selectedTab = 0x7f0100c0;
 		public static final int showAsAction = 0x7f0100a2;
 		public static final int showDividers = 0x7f0100a0;
 		public static final int showText = 0x7f0100bc;
@@ -207,7 +207,7 @@ public final class R {
 		public static final int textAppearanceSmallPopupMenu = 0x7f01004d;
 		public static final int textColorAlertDialogListItem = 0x7f010083;
 		public static final int textColorSearchUrl = 0x7f010067;
-		public static final int textSize = 0x7f0100c1;
+		public static final int textSize = 0x7f0100bf;
 		public static final int theme = 0x7f0100d3;
 		public static final int thickness = 0x7f01009e;
 		public static final int thumbTextPadding = 0x7f0100b7;
@@ -1234,11 +1234,11 @@ public final class R {
 		public static final int SwitchCompat_thumbTextPadding = 4;
 		public static final int SwitchCompat_track = 3;
 		public static final int[] SwitchMultiButton = { 0x7f0100bd, 0x7f0100be, 0x7f0100bf, 0x7f0100c0, 0x7f0100c1 };
-		public static final int SwitchMultiButton_selectedColor = 3;
-		public static final int SwitchMultiButton_selectedTab = 2;
+		public static final int SwitchMultiButton_selectedColor = 4;
+		public static final int SwitchMultiButton_selectedTab = 3;
 		public static final int SwitchMultiButton_strokeRadius = 0;
 		public static final int SwitchMultiButton_strokeWidth = 1;
-		public static final int SwitchMultiButton_textSize = 4;
+		public static final int SwitchMultiButton_textSize = 2;
 		public static final int[] TextAppearance = { 0x01010095, 0x01010096, 0x01010097, 0x01010098, 0x01010161, 0x01010162, 0x01010163, 0x01010164, 0x7f010025 };
 		public static final int TextAppearance_android_shadowColor = 4;
 		public static final int TextAppearance_android_shadowDx = 5;

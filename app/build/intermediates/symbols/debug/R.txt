@@ -162,8 +162,8 @@ int attr searchViewStyle 0x7f010068
 int attr seekBarStyle 0x7f010091
 int attr selectableItemBackground 0x7f010058
 int attr selectableItemBackgroundBorderless 0x7f010059
-int attr selectedColor 0x7f0100c0
-int attr selectedTab 0x7f0100bf
+int attr selectedColor 0x7f0100c1
+int attr selectedTab 0x7f0100c0
 int attr showAsAction 0x7f0100a2
 int attr showDividers 0x7f0100a0
 int attr showText 0x7f0100bc
@@ -195,7 +195,7 @@ int attr textAppearanceSearchResultTitle 0x7f010065
 int attr textAppearanceSmallPopupMenu 0x7f01004d
 int attr textColorAlertDialogListItem 0x7f010083
 int attr textColorSearchUrl 0x7f010067
-int attr textSize 0x7f0100c1
+int attr textSize 0x7f0100bf
 int attr theme 0x7f0100d3
 int attr thickness 0x7f01009e
 int attr thumbTextPadding 0x7f0100b7
@@ -1220,11 +1220,11 @@ int styleable SwitchCompat_switchTextAppearance 5
 int styleable SwitchCompat_thumbTextPadding 4
 int styleable SwitchCompat_track 3
 int[] styleable SwitchMultiButton { 0x7f0100bd, 0x7f0100be, 0x7f0100bf, 0x7f0100c0, 0x7f0100c1 }
-int styleable SwitchMultiButton_selectedColor 3
-int styleable SwitchMultiButton_selectedTab 2
+int styleable SwitchMultiButton_selectedColor 4
+int styleable SwitchMultiButton_selectedTab 3
 int styleable SwitchMultiButton_strokeRadius 0
 int styleable SwitchMultiButton_strokeWidth 1
-int styleable SwitchMultiButton_textSize 4
+int styleable SwitchMultiButton_textSize 2
 int[] styleable TextAppearance { 0x01010095, 0x01010096, 0x01010097, 0x01010098, 0x01010161, 0x01010162, 0x01010163, 0x01010164, 0x7f010025 }
 int styleable TextAppearance_android_shadowColor 4
 int styleable TextAppearance_android_shadowDx 5

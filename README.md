@@ -13,6 +13,10 @@ A smart switchable button,support multiple tabs. CLICK THE ***STAR***  if it's u
 | selectedTab | integer     | app:selected="1" |
 
 ![](https://github.com/KingJA/SwitchButton/blob/master/img/mark.png)
+## Gradle
+```java
+ compile 'lib.kingja.switchbutton:switchbutton:1.1.2'
+```
 
 ## Usage
 ### step 1
@@ -39,6 +43,13 @@ SwitchMultiButton mSwitchMultiButton = (SwitchMultiButton) findViewById(R.id.swi
             }
         });
 ```
+## Changelog
+**v1.1.2**
+- Fix onRestoreInstanceState
+
+**v1.0.0**
+- Initial release 
+
 ## Contact me
 Any questions,Welcome to contact me.
 * email:kingjavip@gmail.com

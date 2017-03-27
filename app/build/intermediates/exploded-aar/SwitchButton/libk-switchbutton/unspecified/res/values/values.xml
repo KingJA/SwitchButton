@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <declare-styleable name="SwitchMultiButton"><attr format="dimension" name="strokeRadius"/><attr format="dimension" name="strokeWidth"/><attr format="integer" name="selectedTab"/><attr format="color|reference" name="selectedColor"/><attr format="dimension" name="textSize"/></declare-styleable>
+    <declare-styleable name="SwitchMultiButton"><attr format="dimension" name="strokeRadius"/><attr format="dimension" name="strokeWidth"/><attr format="dimension" name="textSize"/><attr format="integer" name="selectedTab"/><attr format="color|reference" name="selectedColor"/></declare-styleable>
     <string name="app_name">LibK_SwitchButton</string>
 </resources>

@@ -973,7 +973,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 <p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
          */
-        public static final int selectedColor=0x7f0100c0;
+        public static final int selectedColor=0x7f0100c1;
         /** <p>Must be an integer value, such as "<code>100</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -981,7 +981,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int selectedTab=0x7f0100bf;
+        public static final int selectedTab=0x7f0100c0;
         /** <p>Must be one or more (separated by '|') of the following constant values.</p>
 <table>
 <colgroup align="left" />
@@ -1188,7 +1188,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int textSize=0x7f0100c1;
+        public static final int textSize=0x7f0100bf;
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
@@ -5727,7 +5727,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
           @attr name com.lib.kingja.switchbutton:selectedColor
         */
-        public static final int SwitchMultiButton_selectedColor = 3;
+        public static final int SwitchMultiButton_selectedColor = 4;
         /**
           <p>This symbol is the offset where the {@link com.lib.kingja.switchbutton.R.attr#selectedTab}
           attribute's value can be found in the {@link #SwitchMultiButton} array.
@@ -5741,7 +5741,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name com.lib.kingja.switchbutton:selectedTab
         */
-        public static final int SwitchMultiButton_selectedTab = 2;
+        public static final int SwitchMultiButton_selectedTab = 3;
         /**
           <p>This symbol is the offset where the {@link com.lib.kingja.switchbutton.R.attr#strokeRadius}
           attribute's value can be found in the {@link #SwitchMultiButton} array.
@@ -5789,7 +5789,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name com.lib.kingja.switchbutton:textSize
         */
-        public static final int SwitchMultiButton_textSize = 4;
+        public static final int SwitchMultiButton_textSize = 2;
         /** Attributes that can be used with a TextAppearance.
            <p>Includes the following attributes:</p>
            <table>

@@ -36,10 +36,10 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * Description：A smart switchable button,support multiple tabs.
- * Create Time：2016/7/27 14:57
- * Author:KingJA
- * Email:kingjavip@gmail.com
+ * Description  A smart switchable button,support multiple tabs.
+ * Create Time  2016/7/27 14:57
+ * Author   KingJA
+ * Email    kingjavip@gmail.com
  */
 public class SwitchMultiButton extends View {
 
@@ -86,6 +86,9 @@ public class SwitchMultiButton extends View {
 
     /**
      * get the values of attributes
+     *
+     * @param context
+     * @param attrs
      */
     private void initAttrs(Context context, AttributeSet attrs) {
         TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.SwitchMultiButton);
@@ -134,6 +137,10 @@ public class SwitchMultiButton extends View {
 
     /**
      * get expect size
+     *
+     * @param size
+     * @param measureSpec
+     * @return
      */
     private int getExpectSize(int size, int measureSpec) {
         int result = size;
@@ -195,8 +202,12 @@ public class SwitchMultiButton extends View {
 
     /**
      * draw right path
+     *
+     * @param canvas
+     * @param left
+     * @param top
+     * @param bottom
      */
-
     private void drawLeftPath(Canvas canvas, float left, float top, float bottom) {
         Path leftPath = new Path();
         leftPath.moveTo(left + mStrokeRadius, top);
@@ -208,8 +219,14 @@ public class SwitchMultiButton extends View {
         leftPath.arcTo(new RectF(left, top, left + 2 * mStrokeRadius, top + 2 * mStrokeRadius), 180, 90);
         canvas.drawPath(leftPath, mFillPaint);
     }
+
     /**
      * draw left path
+     *
+     * @param canvas
+     * @param top
+     * @param right
+     * @param bottom
      */
     private void drawRightPath(Canvas canvas, float top, float right, float bottom) {
         Path rightPath = new Path();
@@ -223,9 +240,11 @@ public class SwitchMultiButton extends View {
         canvas.drawPath(rightPath, mFillPaint);
     }
 
-
     /**
      * convert dp to px
+     *
+     * @param dp
+     * @return
      */
     protected int dp2px(float dp) {
         return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, getResources().getDisplayMetrics());
@@ -233,6 +252,9 @@ public class SwitchMultiButton extends View {
 
     /**
      * convert sp to px
+     *
+     * @param sp
+     * @return
      */
     protected int sp2px(float sp) {
         return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, sp, getResources().getDisplayMetrics());
@@ -240,6 +262,11 @@ public class SwitchMultiButton extends View {
 
     /**
      * called after onMeasure
+     *
+     * @param w
+     * @param h
+     * @param oldw
+     * @param oldh
      */
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
@@ -261,6 +288,9 @@ public class SwitchMultiButton extends View {
 
     /**
      * receive the event when touched
+     *
+     * @param event
+     * @return
      */
     @Override
     public boolean onTouchEvent(MotionEvent event) {
@@ -306,6 +336,9 @@ public class SwitchMultiButton extends View {
 
     /**
      * set selected tab
+     *
+     * @param mSelectedTab
+     * @return
      */
     public SwitchMultiButton setSelectedTab(int mSelectedTab) {
         this.mSelectedTab = mSelectedTab;
@@ -315,6 +348,9 @@ public class SwitchMultiButton extends View {
 
     /**
      * set data for the switchbutton
+     *
+     * @param list
+     * @return
      */
     public SwitchMultiButton setText(@NonNull List<String> list) {
         if (list.size() > 1) {
@@ -344,9 +380,9 @@ public class SwitchMultiButton extends View {
     protected void onRestoreInstanceState(Parcelable state) {
         if (state instanceof Bundle) {
             Bundle bundle = (Bundle) state;
-            mStrokeRadius = bundle.getInt("StrokeRadius");
-            mStrokeWidth = bundle.getInt("StrokeWidth");
-            mTextSize = bundle.getInt("TextSize");
+            mStrokeRadius = bundle.getFloat("StrokeRadius");
+            mStrokeWidth = bundle.getFloat("StrokeWidth");
+            mTextSize = bundle.getFloat("TextSize");
             mSelectedColor = bundle.getInt("SelectedColor");
             mSelectedTab = bundle.getInt("SelectedTab");
             super.onRestoreInstanceState(bundle.getParcelable("View"));
