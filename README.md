@@ -47,7 +47,7 @@ SwitchMultiButton mSwitchMultiButton = (SwitchMultiButton) findViewById(R.id.swi
 **v1.1.2**
 - Fix onRestoreInstanceState
 
-**v1.0.0**
+**v1.1.1**
 - Initial release 
 
 ## Contact me
