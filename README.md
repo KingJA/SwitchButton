@@ -6,11 +6,11 @@ A smart switchable button,support multiple tabs. CLICK THE ***STAR***  if it's u
 ## Custom attribute
 | attribute | format | example  |
 | :------------- |:-------------| :-----|
-| stroke_radius | dimension      | app:stroke_radius="5dp" |
-| stroke_width | dimension      | app:stroke_width="2dp" |
-| text_size | dimension      | app:text_size="16sp" |
-| selectedColor | color/reference     | app:selected_color="@color/red" |
-| selectedTab | integer     | app:selected="1" |
+| strokeRadius | dimension      | app:strokeRadius="5dp" |
+| strokeWidth | dimension      | app:strokeWidth="2dp" |
+| textSize | dimension      | app:textSize="16sp" |
+| selectedColor | color/reference     | app:selectedColor="@color/red" |
+| selectedTab | integer     | app:selectedTab="1" |
 
 ![](https://github.com/KingJA/SwitchButton/blob/master/img/mark.png)
 ## Gradle
