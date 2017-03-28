@@ -7,3 +7,5 @@
 /build
 /captures
 .externalNativeBuild
+/app/build/
+/libk-switchbutton/build/

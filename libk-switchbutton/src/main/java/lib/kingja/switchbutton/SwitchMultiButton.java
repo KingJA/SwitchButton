@@ -118,12 +118,12 @@ public class SwitchMultiButton extends View {
         // selected text paint
         mSelectedTextPaint = new TextPaint(Paint.ANTI_ALIAS_FLAG);
         mSelectedTextPaint.setTextSize(mTextSize);
-        mSelectedTextPaint.setColor(mSelectedColor);
+        mSelectedTextPaint.setColor(0xffffffff);
         mStrokePaint.setAntiAlias(true);
         // unselected text paint
         mUnselectedTextPaint = new TextPaint(Paint.ANTI_ALIAS_FLAG);
         mUnselectedTextPaint.setTextSize(mTextSize);
-        mUnselectedTextPaint.setColor(0xffffffff);
+        mUnselectedTextPaint.setColor(mSelectedColor);
         mStrokePaint.setAntiAlias(true);
         mTextHeightOffset = -(mSelectedTextPaint.ascent() + mSelectedTextPaint.descent()) * 0.5f;
     }
@@ -191,11 +191,11 @@ public class SwitchMultiButton extends View {
                     canvas.drawRect(new RectF(perWidth * i, top, perWidth * (i + 1), bottom), mFillPaint);
                 }
                 // draw selected text
-                canvas.drawText(tabText, 0.5f * perWidth * (2 * i + 1) - 0.5f * tabTextWidth, mHeight * 0.5f + mTextHeightOffset, mUnselectedTextPaint);
+                canvas.drawText(tabText, 0.5f * perWidth * (2 * i + 1) - 0.5f * tabTextWidth, mHeight * 0.5f + mTextHeightOffset, mSelectedTextPaint);
 
             } else {
                 //draw unselected text
-                canvas.drawText(tabText, 0.5f * perWidth * (2 * i + 1) - 0.5f * tabTextWidth, mHeight * 0.5f + mTextHeightOffset, mSelectedTextPaint);
+                canvas.drawText(tabText, 0.5f * perWidth * (2 * i + 1) - 0.5f * tabTextWidth, mHeight * 0.5f + mTextHeightOffset, mUnselectedTextPaint);
             }
         }
     }
