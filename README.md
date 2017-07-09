@@ -36,6 +36,8 @@ A smart switchable button,support multiple tabs. CLICK THE ***STAR***  if it's u
 
 ### step 2
 ```java
+//set switch tabs with ***app:switchTabs*** in xml 
+
 SwitchMultiButton mSwitchMultiButton = (SwitchMultiButton) findViewById(R.id.switchmultibutton);
         assert mSwitchMultiButton != null;
         mSwitchMultiButton.setOnSwitchListener(new SwitchMultiButton.OnSwitchListener() {
@@ -60,7 +62,7 @@ SwitchMultiButton mSwitchMultiButton = (SwitchMultiButton) findViewById(R.id.swi
 **v1.1.3**
 - call onSwitch() when setSelectedTab() is called
 - perfect default size for 'wrap_content'
-- add param 'switchTabs' for getting string-array in xml
+- add param ***switchTabs*** for getting string-array in xml
 
 **v1.1.2**
 - Fix onRestoreInstanceState
