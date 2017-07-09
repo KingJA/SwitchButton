@@ -45,7 +45,7 @@ SwitchMultiButton mSwitchMultiButton = (SwitchMultiButton) findViewById(R.id.swi
             }
         });
         
-//or set switch tabs in java in java code
+//or set switch tabs in java code
 
 SwitchMultiButton mSwitchMultiButton = (SwitchMultiButton) findViewById(R.id.switchmultibutton);
         assert mSwitchMultiButton != null;
