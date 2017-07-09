@@ -43,6 +43,7 @@ import java.util.List;
  */
 public class SwitchMultiButton extends View {
 
+    private static final String TAG = "SwitchMultiButton";
     /*default value*/
     private List<String> mTabTextList = Arrays.asList("R", "L");
     private int mTabNum = mTabTextList.size();
@@ -68,6 +69,7 @@ public class SwitchMultiButton extends View {
     private int mSelectedTab;
     private float perWidth;
     private float mTextHeightOffset;
+    private Paint.FontMetrics mFontMetrics;
 
 
     public SwitchMultiButton(Context context) {
@@ -92,11 +94,15 @@ public class SwitchMultiButton extends View {
      */
     private void initAttrs(Context context, AttributeSet attrs) {
         TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.SwitchMultiButton);
-        mStrokeRadius = typedArray.getDimension(R.styleable.SwitchMultiButton_strokeRadius, dp2px(STROKE_RADIUS));
-        mStrokeWidth = typedArray.getDimension(R.styleable.SwitchMultiButton_strokeWidth, dp2px(STROKE_WIDTH));
-        mTextSize = typedArray.getDimension(R.styleable.SwitchMultiButton_textSize, sp2px(TEXT_SIZE));
+        mStrokeRadius = typedArray.getDimension(R.styleable.SwitchMultiButton_strokeRadius, STROKE_RADIUS);
+        mStrokeWidth = typedArray.getDimension(R.styleable.SwitchMultiButton_strokeWidth, STROKE_WIDTH);
+        mTextSize = typedArray.getDimension(R.styleable.SwitchMultiButton_textSize, TEXT_SIZE);
         mSelectedColor = typedArray.getColor(R.styleable.SwitchMultiButton_selectedColor, SELECTED_COLOR);
         mSelectedTab = typedArray.getInteger(R.styleable.SwitchMultiButton_selectedTab, SELECTED_TAB);
+        int mSwitchTabsResId = typedArray.getResourceId(R.styleable.SwitchMultiButton_switchTabs, 0);
+        if (mSwitchTabsResId != 0) {
+            mTabTextList = Arrays.asList(getResources().getStringArray(mSwitchTabsResId));
+        }
         typedArray.recycle();
     }
 
@@ -126,14 +132,37 @@ public class SwitchMultiButton extends View {
         mUnselectedTextPaint.setColor(mSelectedColor);
         mStrokePaint.setAntiAlias(true);
         mTextHeightOffset = -(mSelectedTextPaint.ascent() + mSelectedTextPaint.descent()) * 0.5f;
+        mFontMetrics = mSelectedTextPaint.getFontMetrics();
     }
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        int defaultWidth = dp2px(DEFAULT_WIDTH_DP);
-        int defaultHeight = dp2px(DEFAULT_HEIGHT_DP);
+//        int defaultWidth = dp2px(DEFAULT_WIDTH_DP);
+//        int defaultHeight = dp2px(DEFAULT_HEIGHT_DP);
+        int defaultWidth = getDefaultWidth();
+        int defaultHeight = getDefaultHeight();
+
+
         setMeasuredDimension(getExpectSize(defaultWidth, widthMeasureSpec), getExpectSize(defaultHeight, heightMeasureSpec));
     }
+
+    private int getDefaultHeight() {
+        return (int) (mFontMetrics.bottom - mFontMetrics.top) + getPaddingTop() + getPaddingBottom();
+    }
+
+    private int getDefaultWidth() {
+        float tabTextWidth = 0f;
+        int tabs = mTabTextList.size();
+        for (int i = 0; i < tabs; i++) {
+            tabTextWidth=  Math.max(tabTextWidth, mSelectedTextPaint.measureText(mTabTextList.get(i)));
+        }
+
+        float totalTextWidth =  tabTextWidth * tabs;
+        float totalStrokeWidth =  (mStrokeWidth * tabs);
+        int totalPadding=(getPaddingRight()+getPaddingLeft()) * tabs;
+        return (int) (totalTextWidth + totalStrokeWidth+totalPadding);
+    }
+
 
     /**
      * get expect size
@@ -251,16 +280,6 @@ public class SwitchMultiButton extends View {
     }
 
     /**
-     * convert sp to px
-     *
-     * @param sp
-     * @return
-     */
-    protected int sp2px(float sp) {
-        return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, sp, getResources().getDisplayMetrics());
-    }
-
-    /**
      * called after onMeasure
      *
      * @param w
@@ -343,6 +362,9 @@ public class SwitchMultiButton extends View {
     public SwitchMultiButton setSelectedTab(int mSelectedTab) {
         this.mSelectedTab = mSelectedTab;
         invalidate();
+        if (onSwitchListener != null) {
+            onSwitchListener.onSwitch(mSelectedTab, mTabTextList.get(mSelectedTab));
+        }
         return this;
     }
 

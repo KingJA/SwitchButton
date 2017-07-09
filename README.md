@@ -11,6 +11,7 @@ A smart switchable button,support multiple tabs. CLICK THE ***STAR***  if it's u
 | textSize | dimension      | app:textSize="16sp" |
 | selectedColor | color/reference     | app:selectedColor="@color/red" |
 | selectedTab | integer     | app:selectedTab="1" |
+| switchTabs | reference     | app:switchTabs="@array/switch_tabs" |
 
 ![](https://github.com/KingJA/SwitchButton/blob/master/img/mark.png)
 ## Gradle
@@ -29,6 +30,7 @@ A smart switchable button,support multiple tabs. CLICK THE ***STAR***  if it's u
         app:strokeWidth="1dp"
         app:selectedTab="0"
         app:selectedColor="#eb7b00"
+        app:switchTabs="@array/switch_tabs"
         app:textSize="14sp" />
 ```
 
@@ -44,6 +46,11 @@ SwitchMultiButton mSwitchMultiButton = (SwitchMultiButton) findViewById(R.id.swi
         });
 ```
 ## Changelog
+**v1.1.3**
+- call onSwitch() when setSelectedTab() is called
+- perfect default size for 'wrap_content'
+- add param 'switchTabs' for getting string-array in xml
+
 **v1.1.2**
 - Fix onRestoreInstanceState
 

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="switch_tabs">
+        <item>凤姐</item>
+        <item>苍老师</item>
+    </string-array>
+
+</resources>

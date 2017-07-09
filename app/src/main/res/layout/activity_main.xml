@@ -8,9 +8,11 @@
     android:gravity="center_horizontal">
 
     <lib.kingja.switchbutton.SwitchMultiButton
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
         android:id="@+id/switchmultibutton1"
         android:layout_width="match_parent"
-        android:layout_height="30dp"
+        android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="14dp"
         app:selectedColor="#1c7626"
@@ -21,8 +23,12 @@
 
     <lib.kingja.switchbutton.SwitchMultiButton
         android:id="@+id/switchmultibutton2"
-        android:layout_width="300dp"
-        android:layout_height="30dp"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
+        android:paddingRight="12dp"
+        android:paddingLeft="12dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="14dp"
         app:selectedColor="#eb7b00"
@@ -32,11 +38,13 @@
         app:textSize="14sp" />
 
     <lib.kingja.switchbutton.SwitchMultiButton
+        android:padding="8dp"
         android:id="@+id/switchmultibutton3"
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="14dp"
+        app:switchTabs="@array/switch_tabs"
         app:selectedColor="#86389c"
         app:selectedTab="0"
         app:strokeRadius="5dp"

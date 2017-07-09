@@ -39,7 +39,6 @@ public class MainActivity extends AppCompatActivity {
 
     private List<String> tabTextList1 = Arrays.asList("才子1", "帅哥", "大湿", "猛将兄");
     private List<String> tabTextList2 = Arrays.asList("点个Star", "狠心拒绝");
-    private List<String> tabTextList3 = Arrays.asList("凤姐", "苍老师");
     private List<String> tabTextList4 = Arrays.asList("已经", "在家", "等你");
 
     @Override
@@ -49,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
 
         ((SwitchMultiButton) findViewById(R.id.switchmultibutton1)).setText(tabTextList1).setOnSwitchListener(onSwitchListener);
         ((SwitchMultiButton) findViewById(R.id.switchmultibutton2)).setText(tabTextList2).setOnSwitchListener(onSwitchListener);
-        ((SwitchMultiButton) findViewById(R.id.switchmultibutton3)).setText(tabTextList3).setOnSwitchListener(onSwitchListener);
+        ((SwitchMultiButton) findViewById(R.id.switchmultibutton3)).setOnSwitchListener(onSwitchListener);
         ((SwitchMultiButton) findViewById(R.id.switchmultibutton4)).setText(tabTextList4).setOnSwitchListener(onSwitchListener);
     }
 
