@@ -39,7 +39,6 @@ A smart switchable button,support multiple tabs. CLICK THE ***STAR***  if it's u
 //set switch tabs with ***app:switchTabs*** in xml 
 
 SwitchMultiButton mSwitchMultiButton = (SwitchMultiButton) findViewById(R.id.switchmultibutton);
-        assert mSwitchMultiButton != null;
         mSwitchMultiButton.setOnSwitchListener(new SwitchMultiButton.OnSwitchListener() {
             @Override
             public void onSwitch(int position, String tabText) {
@@ -50,7 +49,6 @@ SwitchMultiButton mSwitchMultiButton = (SwitchMultiButton) findViewById(R.id.swi
 //or set switch tabs in java code
 
 SwitchMultiButton mSwitchMultiButton = (SwitchMultiButton) findViewById(R.id.switchmultibutton);
-        assert mSwitchMultiButton != null;
         mSwitchMultiButton.setText("点个Star", "狠心拒绝").setOnSwitchListener(new SwitchMultiButton.OnSwitchListener() {
             @Override
             public void onSwitch(int position, String tabText) {
