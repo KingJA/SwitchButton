@@ -37,7 +37,6 @@ import static com.lib.kingja.switchbutton.R.id.switchmultibutton3;
 public class MainActivity extends AppCompatActivity {
 
     private String[] tabTexts1 = {"才子1", "帅哥", "大湿", "猛将兄"};
-    private String[] tabTexts2 = {"点个Star", "狠心拒绝"};
     private String[] tabTexts4 = {"已经", "在家", "等你"};
 
     @Override
@@ -46,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         ((SwitchMultiButton) findViewById(R.id.switchmultibutton1)).setText(tabTexts1).setOnSwitchListener(onSwitchListener);
-        ((SwitchMultiButton) findViewById(R.id.switchmultibutton2)).setText(tabTexts2).setOnSwitchListener(onSwitchListener);
+        ((SwitchMultiButton) findViewById(R.id.switchmultibutton2)).setText("点个Star", "狠心拒绝").setOnSwitchListener(onSwitchListener);
         ((SwitchMultiButton) findViewById(switchmultibutton3)).setOnSwitchListener(onSwitchListener).setSelectedTab(1);
         ((SwitchMultiButton) findViewById(R.id.switchmultibutton4)).setText(tabTexts4).setOnSwitchListener(onSwitchListener);
     }
