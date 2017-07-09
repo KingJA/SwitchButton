@@ -28,12 +28,8 @@ import android.os.Parcelable;
 import android.support.annotation.NonNull;
 import android.text.TextPaint;
 import android.util.AttributeSet;
-import android.util.TypedValue;
 import android.view.MotionEvent;
 import android.view.View;
-
-import java.util.Arrays;
-import java.util.List;
 
 /**
  * Description  A smart switchable button,support multiple tabs.
@@ -45,10 +41,8 @@ public class SwitchMultiButton extends View {
 
     private static final String TAG = "SwitchMultiButton";
     /*default value*/
-    private List<String> mTabTextList = Arrays.asList("R", "L");
-    private int mTabNum = mTabTextList.size();
-    private static final float DEFAULT_WIDTH_DP = 280f;
-    private static final float DEFAULT_HEIGHT_DP = 30f;
+    private String[] mTabTexts = {"L", "R"};
+    private int mTabNum = mTabTexts.length;
     private static final float STROKE_RADIUS = 0;
     private static final float STROKE_WIDTH = 2;
     private static final float TEXT_SIZE = 14;
@@ -101,7 +95,7 @@ public class SwitchMultiButton extends View {
         mSelectedTab = typedArray.getInteger(R.styleable.SwitchMultiButton_selectedTab, SELECTED_TAB);
         int mSwitchTabsResId = typedArray.getResourceId(R.styleable.SwitchMultiButton_switchTabs, 0);
         if (mSwitchTabsResId != 0) {
-            mTabTextList = Arrays.asList(getResources().getStringArray(mSwitchTabsResId));
+            mTabTexts = getResources().getStringArray(mSwitchTabsResId);
         }
         typedArray.recycle();
     }
@@ -137,12 +131,8 @@ public class SwitchMultiButton extends View {
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-//        int defaultWidth = dp2px(DEFAULT_WIDTH_DP);
-//        int defaultHeight = dp2px(DEFAULT_HEIGHT_DP);
         int defaultWidth = getDefaultWidth();
         int defaultHeight = getDefaultHeight();
-
-
         setMeasuredDimension(getExpectSize(defaultWidth, widthMeasureSpec), getExpectSize(defaultHeight, heightMeasureSpec));
     }
 
@@ -152,15 +142,14 @@ public class SwitchMultiButton extends View {
 
     private int getDefaultWidth() {
         float tabTextWidth = 0f;
-        int tabs = mTabTextList.size();
+        int tabs = mTabTexts.length;
         for (int i = 0; i < tabs; i++) {
-            tabTextWidth=  Math.max(tabTextWidth, mSelectedTextPaint.measureText(mTabTextList.get(i)));
+            tabTextWidth = Math.max(tabTextWidth, mSelectedTextPaint.measureText(mTabTexts[i]));
         }
-
-        float totalTextWidth =  tabTextWidth * tabs;
-        float totalStrokeWidth =  (mStrokeWidth * tabs);
-        int totalPadding=(getPaddingRight()+getPaddingLeft()) * tabs;
-        return (int) (totalTextWidth + totalStrokeWidth+totalPadding);
+        float totalTextWidth = tabTextWidth * tabs;
+        float totalStrokeWidth = (mStrokeWidth * tabs);
+        int totalPadding = (getPaddingRight() + getPaddingLeft()) * tabs;
+        return (int) (totalTextWidth + totalStrokeWidth + totalPadding);
     }
 
 
@@ -206,7 +195,7 @@ public class SwitchMultiButton extends View {
         }
         //draw tab and line
         for (int i = 0; i < mTabNum; i++) {
-            String tabText = mTabTextList.get(i);
+            String tabText = mTabTexts[i];
             float tabTextWidth = mSelectedTextPaint.measureText(tabText);
             if (i == mSelectedTab) {
                 //draw selected tab
@@ -269,15 +258,6 @@ public class SwitchMultiButton extends View {
         canvas.drawPath(rightPath, mFillPaint);
     }
 
-    /**
-     * convert dp to px
-     *
-     * @param dp
-     * @return
-     */
-    protected int dp2px(float dp) {
-        return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, getResources().getDisplayMetrics());
-    }
 
     /**
      * called after onMeasure
@@ -322,7 +302,7 @@ public class SwitchMultiButton extends View {
                     }
                     mSelectedTab = i;
                     if (onSwitchListener != null) {
-                        onSwitchListener.onSwitch(i, mTabTextList.get(i));
+                        onSwitchListener.onSwitch(i, mTabTexts[i]);
                     }
                 }
             }
@@ -340,8 +320,9 @@ public class SwitchMultiButton extends View {
         void onSwitch(int position, String tabText);
     }
 
-    public void setOnSwitchListener(@NonNull OnSwitchListener onSwitchListener) {
+    public SwitchMultiButton setOnSwitchListener(@NonNull OnSwitchListener onSwitchListener) {
         this.onSwitchListener = onSwitchListener;
+        return this;
     }
 
     /*=========================================Set and Get=========================================*/
@@ -363,7 +344,7 @@ public class SwitchMultiButton extends View {
         this.mSelectedTab = mSelectedTab;
         invalidate();
         if (onSwitchListener != null) {
-            onSwitchListener.onSwitch(mSelectedTab, mTabTextList.get(mSelectedTab));
+            onSwitchListener.onSwitch(mSelectedTab, mTabTexts[mSelectedTab]);
         }
         return this;
     }
@@ -371,17 +352,17 @@ public class SwitchMultiButton extends View {
     /**
      * set data for the switchbutton
      *
-     * @param list
+     * @param tagTexts
      * @return
      */
-    public SwitchMultiButton setText(@NonNull List<String> list) {
-        if (list.size() > 1) {
-            this.mTabTextList = list;
-            mTabNum = list.size();
-            invalidate();
+    public SwitchMultiButton setText(String... tagTexts) {
+        if (tagTexts.length > 1) {
+            this.mTabTexts = tagTexts;
+            mTabNum = tagTexts.length;
+            requestLayout();
             return this;
         } else {
-            throw new IllegalArgumentException("the size of list should greater then 1");
+            throw new IllegalArgumentException("the size of tagTexts should greater then 1");
         }
     }
     /*======================================save and restore======================================*/
