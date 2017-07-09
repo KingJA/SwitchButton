@@ -23,9 +23,9 @@ A smart switchable button,support multiple tabs. CLICK THE ***STAR***  if it's u
 ### step 1
 ```xml
 <lib.kingja.switchbutton.SwitchMultiButton
-        android:id="@+id/switchmultibutton"
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+         android:padding="8dp"
         app:strokeRadius="5dp"
         app:strokeWidth="1dp"
         app:selectedTab="0"
