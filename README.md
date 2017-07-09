@@ -38,6 +38,17 @@ A smart switchable button,support multiple tabs. CLICK THE ***STAR***  if it's u
 ```java
 SwitchMultiButton mSwitchMultiButton = (SwitchMultiButton) findViewById(R.id.switchmultibutton);
         assert mSwitchMultiButton != null;
+        mSwitchMultiButton.setOnSwitchListener(new SwitchMultiButton.OnSwitchListener() {
+            @Override
+            public void onSwitch(int position, String tabText) {
+                Toast.makeText(MainActivity.this, tabText, Toast.LENGTH_SHORT).show();
+            }
+        });
+        
+//or set switch tabs in java in java code
+
+SwitchMultiButton mSwitchMultiButton = (SwitchMultiButton) findViewById(R.id.switchmultibutton);
+        assert mSwitchMultiButton != null;
         mSwitchMultiButton.setText("点个Star", "狠心拒绝").setOnSwitchListener(new SwitchMultiButton.OnSwitchListener() {
             @Override
             public void onSwitch(int position, String tabText) {
@@ -61,8 +72,7 @@ SwitchMultiButton mSwitchMultiButton = (SwitchMultiButton) findViewById(R.id.swi
 Any questions,Welcome to contact me.
 * email:kingjavip@gmail.com
 * QQ:87049319
-* Weixin:darabbbit
-* [My blog](https://kingja.github.io)
+* [Blog](http://www.jianshu.com/u/8a1a8ed656e8)
 
 ## License
 
