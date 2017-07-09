@@ -136,10 +136,16 @@ public class SwitchMultiButton extends View {
         setMeasuredDimension(getExpectSize(defaultWidth, widthMeasureSpec), getExpectSize(defaultHeight, heightMeasureSpec));
     }
 
+    /**
+     * get default height when android:layout_height="wrap_content"
+     */
     private int getDefaultHeight() {
         return (int) (mFontMetrics.bottom - mFontMetrics.top) + getPaddingTop() + getPaddingBottom();
     }
 
+    /**
+     * get default width when android:layout_width="wrap_content"
+     */
     private int getDefaultWidth() {
         float tabTextWidth = 0f;
         int tabs = mTabTexts.length;
