@@ -58,15 +58,15 @@ SwitchMultiButton mSwitchMultiButton = (SwitchMultiButton) findViewById(R.id.swi
 ```
 ## Changelog
 **v1.1.3**
-- call onSwitch() when setSelectedTab() is called
-- perfect default size for 'wrap_content'
-- add param ***switchTabs*** for getting string-array in xml
+- Call onSwitch() when setSelectedTab() is called.
+- Perfect default size for 'wrap_content'.
+- Add param ***switchTabs*** for getting string-array in xml.
 
 **v1.1.2**
-- Fix onRestoreInstanceState
+- Fix onRestoreInstanceState.
 
 **v1.1.1**
-- Initial release 
+- Initial release .
 
 ## Contact me
 Any questions,Welcome to contact me.
