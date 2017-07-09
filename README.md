@@ -15,13 +15,13 @@ A smart switchable button,support multiple tabs. CLICK THE ***STAR***  if it's u
 
 ![](https://github.com/KingJA/SwitchButton/blob/master/img/mark.png)
 ## Gradle
-```java
+```xml
  compile 'lib.kingja.switchbutton:switchbutton:1.1.3'
 ```
 
 ## Usage
 ### step 1
-```java
+```xml
 <lib.kingja.switchbutton.SwitchMultiButton
         android:id="@+id/switchmultibutton"
         android:layout_width="match_parent"
