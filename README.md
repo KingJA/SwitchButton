@@ -70,9 +70,9 @@ SwitchMultiButton mSwitchMultiButton = (SwitchMultiButton) findViewById(R.id.swi
 
 ## Contact me
 Any questions,Welcome to contact me.
+* [Blog](http://www.jianshu.com/u/8a1a8ed656e8)
 * email:kingjavip@gmail.com
 * QQ:87049319
-* [Blog](http://www.jianshu.com/u/8a1a8ed656e8)
 
 ## License
 
