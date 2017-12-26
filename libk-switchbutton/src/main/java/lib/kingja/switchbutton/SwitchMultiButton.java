@@ -355,6 +355,11 @@ public class SwitchMultiButton extends View {
         return this;
     }
 
+    public void clearSelection() {
+        this.mSelectedTab = -1;
+        invalidate();
+    }
+
     /**
      * set data for the switchbutton
      *
