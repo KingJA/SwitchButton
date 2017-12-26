@@ -36,7 +36,7 @@ import static com.lib.kingja.switchbutton.R.id.switchmultibutton3;
  */
 public class MainActivity extends AppCompatActivity {
 
-    private String[] tabTexts1 = {"才子1", "帅哥", "大湿", "猛将兄"};
+    private String[] tabTexts1 = {"才子", "帅哥", "大湿", "猛将兄"};
     private String[] tabTexts4 = {"已经", "在家", "等你"};
 
     @Override
