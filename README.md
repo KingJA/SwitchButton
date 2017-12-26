@@ -32,6 +32,7 @@ A smart switchable button,support multiple tabs. CLICK THE ***STAR***  if it's u
         app:selectedTab="0"
         app:selectedColor="#eb7b00"
         app:switchTabs="@array/switch_tabs"
+        app:typeface="DeVinneTxtBT.ttf"
         app:textSize="14sp" />
 ```
 
