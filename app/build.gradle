@@ -1,7 +1,7 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion rootProject.ext.compileSdkVersion
+    compileSdkVersion 25
     buildToolsVersion rootProject.ext.buildToolsVersion
 
     defaultConfig {
@@ -26,8 +26,7 @@ android {
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'
-
     compile project(':libk-switchbutton')
-
+//    compile 'lib.kingja.switchbutton:switchbutton:1.1.6'
     compile "com.android.support:appcompat-v7:$rootProject.ext.supportVersion"
 }

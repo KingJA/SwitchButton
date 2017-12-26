@@ -12,11 +12,12 @@ A smart switchable button,support multiple tabs. CLICK THE ***STAR***  if it's u
 | selectedColor | color/reference     | app:selectedColor="@color/red" |
 | selectedTab | integer     | app:selectedTab="1" |
 | switchTabs | reference     | app:switchTabs="@array/switch_tabs" |
+| typeface | string     | app:typeface="DeVinneTxtBT.ttf" |
 
 ![](https://github.com/KingJA/SwitchButton/blob/master/img/mark.png)
 ## Gradle
 ```xml
- compile 'lib.kingja.switchbutton:switchbutton:1.1.5'
+ compile 'lib.kingja.switchbutton:switchbutton:1.1.6'
 ```
 
 ## Usage
@@ -57,6 +58,9 @@ SwitchMultiButton mSwitchMultiButton = (SwitchMultiButton) findViewById(R.id.swi
         });
 ```
 ## Changelog
+**v1.1.6**
+- support typeface.[issues6](https://github.com/KingJA/SwitchButton/issues/6)
+
 **v1.1.5**
 - Fix tabs count error.[issues8](https://github.com/KingJA/SwitchButton/issues/8)
 

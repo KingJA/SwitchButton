@@ -23,10 +23,12 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.RectF;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.support.annotation.NonNull;
 import android.text.TextPaint;
+import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
@@ -48,6 +50,7 @@ public class SwitchMultiButton extends View {
     private static final float TEXT_SIZE = 14;
     private static final int SELECTED_COLOR = 0xffeb7b00;
     private static final int SELECTED_TAB = 0;
+    private static final String FONTS_DIR = "fonts/";
     /*other*/
     private Paint mStrokePaint;
     private Paint mFillPaint;
@@ -61,9 +64,11 @@ public class SwitchMultiButton extends View {
     private int mSelectedColor;
     private float mTextSize;
     private int mSelectedTab;
+    private String mTypeface;
     private float perWidth;
     private float mTextHeightOffset;
     private Paint.FontMetrics mFontMetrics;
+    private Typeface typeface;
 
 
     public SwitchMultiButton(Context context) {
@@ -93,10 +98,14 @@ public class SwitchMultiButton extends View {
         mTextSize = typedArray.getDimension(R.styleable.SwitchMultiButton_textSize, TEXT_SIZE);
         mSelectedColor = typedArray.getColor(R.styleable.SwitchMultiButton_selectedColor, SELECTED_COLOR);
         mSelectedTab = typedArray.getInteger(R.styleable.SwitchMultiButton_selectedTab, SELECTED_TAB);
+        mTypeface = typedArray.getString(R.styleable.SwitchMultiButton_typeface);
         int mSwitchTabsResId = typedArray.getResourceId(R.styleable.SwitchMultiButton_switchTabs, 0);
         if (mSwitchTabsResId != 0) {
             mTabTexts = getResources().getStringArray(mSwitchTabsResId);
             mTabNum = mTabTexts.length;
+        }
+        if (!TextUtils.isEmpty(mTypeface)) {
+            typeface = Typeface.createFromAsset(context.getAssets(), FONTS_DIR + mTypeface);
         }
         typedArray.recycle();
     }
@@ -128,6 +137,10 @@ public class SwitchMultiButton extends View {
         mStrokePaint.setAntiAlias(true);
         mTextHeightOffset = -(mSelectedTextPaint.ascent() + mSelectedTextPaint.descent()) * 0.5f;
         mFontMetrics = mSelectedTextPaint.getFontMetrics();
+        if (typeface != null) {
+            mSelectedTextPaint.setTypeface(typeface);
+            mUnselectedTextPaint.setTypeface(typeface);
+        }
     }
 
     @Override
