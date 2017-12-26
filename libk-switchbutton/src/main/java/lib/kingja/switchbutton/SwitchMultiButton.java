@@ -96,6 +96,7 @@ public class SwitchMultiButton extends View {
         int mSwitchTabsResId = typedArray.getResourceId(R.styleable.SwitchMultiButton_switchTabs, 0);
         if (mSwitchTabsResId != 0) {
             mTabTexts = getResources().getStringArray(mSwitchTabsResId);
+            mTabNum = mTabTexts.length;
         }
         typedArray.recycle();
     }
@@ -133,7 +134,8 @@ public class SwitchMultiButton extends View {
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         int defaultWidth = getDefaultWidth();
         int defaultHeight = getDefaultHeight();
-        setMeasuredDimension(getExpectSize(defaultWidth, widthMeasureSpec), getExpectSize(defaultHeight, heightMeasureSpec));
+        setMeasuredDimension(getExpectSize(defaultWidth, widthMeasureSpec), getExpectSize(defaultHeight,
+                heightMeasureSpec));
     }
 
     /**
@@ -180,6 +182,8 @@ public class SwitchMultiButton extends View {
             case MeasureSpec.AT_MOST:
                 result = Math.min(size, specSize);
                 break;
+            default:
+                break;
         }
         return result;
     }
@@ -215,11 +219,13 @@ public class SwitchMultiButton extends View {
                     canvas.drawRect(new RectF(perWidth * i, top, perWidth * (i + 1), bottom), mFillPaint);
                 }
                 // draw selected text
-                canvas.drawText(tabText, 0.5f * perWidth * (2 * i + 1) - 0.5f * tabTextWidth, mHeight * 0.5f + mTextHeightOffset, mSelectedTextPaint);
+                canvas.drawText(tabText, 0.5f * perWidth * (2 * i + 1) - 0.5f * tabTextWidth, mHeight * 0.5f +
+                        mTextHeightOffset, mSelectedTextPaint);
 
             } else {
                 //draw unselected text
-                canvas.drawText(tabText, 0.5f * perWidth * (2 * i + 1) - 0.5f * tabTextWidth, mHeight * 0.5f + mTextHeightOffset, mUnselectedTextPaint);
+                canvas.drawText(tabText, 0.5f * perWidth * (2 * i + 1) - 0.5f * tabTextWidth, mHeight * 0.5f +
+                        mTextHeightOffset, mUnselectedTextPaint);
             }
         }
     }

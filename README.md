@@ -16,7 +16,7 @@ A smart switchable button,support multiple tabs. CLICK THE ***STAR***  if it's u
 ![](https://github.com/KingJA/SwitchButton/blob/master/img/mark.png)
 ## Gradle
 ```xml
- compile 'lib.kingja.switchbutton:switchbutton:1.1.3'
+ compile 'lib.kingja.switchbutton:switchbutton:1.1.5'
 ```
 
 ## Usage
@@ -57,6 +57,9 @@ SwitchMultiButton mSwitchMultiButton = (SwitchMultiButton) findViewById(R.id.swi
         });
 ```
 ## Changelog
+**v1.1.5**
+- Fix tabs count error.[issues8](https://github.com/KingJA/SwitchButton/issues/8)
+
 **v1.1.3**
 - Call onSwitch() when setSelectedTab() is called.
 - Perfect default size for 'wrap_content'.
