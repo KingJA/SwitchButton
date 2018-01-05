@@ -30,8 +30,11 @@ import android.support.annotation.NonNull;
 import android.text.TextPaint;
 import android.text.TextUtils;
 import android.util.AttributeSet;
+import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
+
+import static lib.kingja.switchbutton.R.attr.selectedTab;
 
 /**
  * Description  A smart switchable button,support multiple tabs.
@@ -422,5 +425,27 @@ public class SwitchMultiButton extends View {
         } else {
             super.onRestoreInstanceState(state);
         }
+    }
+    /*======================================TV logic======================================*/
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        switch (keyCode) {
+            case KeyEvent.KEYCODE_DPAD_LEFT:
+                if (mSelectedTab > 0) {
+                    mSelectedTab -= 1;
+                    setSelectedTab(mSelectedTab);
+                    return true;
+                }
+            case KeyEvent.KEYCODE_DPAD_RIGHT:
+                if (mSelectedTab < mTabNum - 1) {
+                    mSelectedTab += 1;
+                    setSelectedTab(mSelectedTab);
+                    return true;
+                }
+            default:
+                break;
+        }
+        return super.onKeyDown(keyCode, event);
     }
 }
