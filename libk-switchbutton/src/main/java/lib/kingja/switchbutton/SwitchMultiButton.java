@@ -34,8 +34,6 @@ import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
 
-import static lib.kingja.switchbutton.R.attr.selectedTab;
-
 /**
  * Description  A smart switchable button,support multiple tabs.
  * Create Time  2016/7/27 14:57

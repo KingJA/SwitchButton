@@ -1,3 +1,5 @@
+**v1.1.7**
+- move assets from lib dir to app dir
 **v1.1.6**
 - support typeface.[issues6](https://github.com/KingJA/SwitchButton/issues/6)
 
