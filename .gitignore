@@ -9,3 +9,4 @@
 .externalNativeBuild
 /app/build/
 /libk-switchbutton/build/
+/.idea
