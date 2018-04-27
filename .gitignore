@@ -1,7 +1,10 @@
 *.iml
 .gradle
 /local.properties
+/.idea/workspace.xml
+/.idea/libraries
+.DS_Store
 /build
-/app/build/
-/libk-switchbutton/build/
+/captures
+.externalNativeBuild
 /.idea
