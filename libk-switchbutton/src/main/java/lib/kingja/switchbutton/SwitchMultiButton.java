@@ -459,6 +459,7 @@ public class SwitchMultiButton extends View {
         bundle.putFloat("TextSize", mTextSize);
         bundle.putInt("SelectedColor", mSelectedColor);
         bundle.putSerializable("SelectedTab", (HashSet<Integer>) mSelectedTabs);
+        bundle.putBoolean("AllowMultiTab", allowMultiTab);
         return bundle;
     }
     /*======================================save and restore======================================*/
@@ -472,6 +473,7 @@ public class SwitchMultiButton extends View {
             mTextSize = bundle.getFloat("TextSize");
             mSelectedColor = bundle.getInt("SelectedColor");
             mSelectedTabs = (HashSet<Integer>) bundle.getSerializable("SelectedTab");
+            allowMultiTab = bundle.getBoolean("AllowMultiTab");
             super.onRestoreInstanceState(bundle.getParcelable("View"));
         } else {
             super.onRestoreInstanceState(state);
@@ -479,7 +481,7 @@ public class SwitchMultiButton extends View {
     }
 
     /**
-     * called when swtiched
+     * called when a tab is switched
      */
     public interface OnSwitchListener {
         void onSwitch(int position, String tabText);
