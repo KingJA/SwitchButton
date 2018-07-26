@@ -16,7 +16,6 @@
         android:paddingBottom="4dp"
         android:paddingTop="4dp"
         app:selectedColor="#1c7626"
-        app:selectedTab="1"
         app:strokeRadius="0dp"
         app:strokeWidth="1dp"
         app:textSize="14sp"/>

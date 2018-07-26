@@ -19,7 +19,6 @@ package com.kingja.switchbutton;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.Toast;
 
 import com.lib.kingja.switchbutton.R;
 
@@ -36,25 +35,37 @@ import static com.lib.kingja.switchbutton.R.id.switchmultibutton3;
  */
 public class MainActivity extends AppCompatActivity {
 
-    private String[] tabTexts1 = {"才子", "帅哥", "大湿", "猛将兄"};
+    private String[] tabTexts1 = {"test1", "test2", "test3", "test4"};
     private String[] tabTexts4 = {"已经", "在家", "等你"};
+    private SwitchMultiButton smb;
+
+    private SwitchMultiButton.OnSwitchListener onSwitchListener = new SwitchMultiButton.OnSwitchListener() {
+        @Override
+        public void onSwitch(int position, String tabText) {
+            //Toast.makeText(MainActivity.this, tabText, Toast.LENGTH_SHORT).show();
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ((SwitchMultiButton) findViewById(R.id.switchmultibutton1)).setText(tabTexts1).setOnSwitchListener(onSwitchListener);
+        smb = ((SwitchMultiButton) findViewById(R.id.switchmultibutton1));
+        smb.setText(tabTexts1).setOnSwitchListener(onSwitchListener);
+
+        Integer in[] = new Integer[]{0, 2};
+
+        for (Integer i : in) {
+            smb.setSelectedTab(i);
+        }
+
         ((SwitchMultiButton) findViewById(R.id.switchmultibutton2)).setText("点个Star", "狠心拒绝").setOnSwitchListener(onSwitchListener);
         ((SwitchMultiButton) findViewById(switchmultibutton3)).setOnSwitchListener(onSwitchListener).setSelectedTab(1);
         ((SwitchMultiButton) findViewById(R.id.switchmultibutton4)).setText(tabTexts4).setOnSwitchListener(onSwitchListener);
     }
 
-    private SwitchMultiButton.OnSwitchListener onSwitchListener = new SwitchMultiButton.OnSwitchListener() {
-        @Override
-        public void onSwitch(int position, String tabText) {
-            Toast.makeText(MainActivity.this, tabText, Toast.LENGTH_SHORT).show();
-        }
-    };
-
+    public SwitchMultiButton getSwitchMultiButton() {
+        return smb;
+    }
 }
