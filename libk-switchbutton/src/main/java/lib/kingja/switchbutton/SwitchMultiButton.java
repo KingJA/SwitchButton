@@ -33,6 +33,9 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * Description  A smart switchable button,support multiple tabs.
  * Create Time  2016/7/27 14:57
@@ -42,15 +45,15 @@ import android.view.View;
 public class SwitchMultiButton extends View {
 
     private static final String TAG = "SwitchMultiButton";
-    /*default value*/
-    private String[] mTabTexts = {"L", "R"};
-    private int mTabNum = mTabTexts.length;
     private static final float STROKE_RADIUS = 0;
     private static final float STROKE_WIDTH = 2;
     private static final float TEXT_SIZE = 14;
     private static final int SELECTED_COLOR = 0xffeb7b00;
     private static final int SELECTED_TAB = 0;
     private static final String FONTS_DIR = "fonts/";
+    /*default value*/
+    private String[] mTabTexts = {"L", "R"};
+    private int mTabNum = mTabTexts.length;
     /*other*/
     private Paint mStrokePaint;
     private Paint mFillPaint;
@@ -63,7 +66,7 @@ public class SwitchMultiButton extends View {
     private float mStrokeWidth;
     private int mSelectedColor;
     private float mTextSize;
-    private int mSelectedTab;
+    private Set<Integer> mSelectedTabs;
     private String mTypeface;
     private float perWidth;
     private float mTextHeightOffset;
@@ -92,18 +95,23 @@ public class SwitchMultiButton extends View {
      * @param attrs
      */
     private void initAttrs(Context context, AttributeSet attrs) {
+        mSelectedTabs = new HashSet<>();
+
         TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.SwitchMultiButton);
         mStrokeRadius = typedArray.getDimension(R.styleable.SwitchMultiButton_strokeRadius, STROKE_RADIUS);
         mStrokeWidth = typedArray.getDimension(R.styleable.SwitchMultiButton_strokeWidth, STROKE_WIDTH);
         mTextSize = typedArray.getDimension(R.styleable.SwitchMultiButton_textSize, TEXT_SIZE);
         mSelectedColor = typedArray.getColor(R.styleable.SwitchMultiButton_selectedColor, SELECTED_COLOR);
-        mSelectedTab = typedArray.getInteger(R.styleable.SwitchMultiButton_selectedTab, SELECTED_TAB);
+        mSelectedTabs.add(typedArray.getInteger(R.styleable.SwitchMultiButton_selectedTab, SELECTED_TAB));
         mTypeface = typedArray.getString(R.styleable.SwitchMultiButton_typeface);
+
         int mSwitchTabsResId = typedArray.getResourceId(R.styleable.SwitchMultiButton_switchTabs, 0);
+
         if (mSwitchTabsResId != 0) {
-            mTabTexts = getResources().getStringArray(mSwitchTabsResId);
+            mTabTexts = context.getResources().getStringArray(mSwitchTabsResId);
             mTabNum = mTabTexts.length;
         }
+
         if (!TextUtils.isEmpty(mTypeface)) {
             typeface = Typeface.createFromAsset(context.getAssets(), FONTS_DIR + mTypeface);
         }
@@ -220,7 +228,8 @@ public class SwitchMultiButton extends View {
         for (int i = 0; i < mTabNum; i++) {
             String tabText = mTabTexts[i];
             float tabTextWidth = mSelectedTextPaint.measureText(tabText);
-            if (i == mSelectedTab) {
+
+            if (mSelectedTabs.contains(i)) {
                 //draw selected tab
                 if (i == 0) {
                     drawLeftPath(canvas, left, top, bottom);
@@ -234,7 +243,6 @@ public class SwitchMultiButton extends View {
                 // draw selected text
                 canvas.drawText(tabText, 0.5f * perWidth * (2 * i + 1) - 0.5f * tabTextWidth, mHeight * 0.5f +
                         mTextHeightOffset, mSelectedTextPaint);
-
             } else {
                 //draw unselected text
                 canvas.drawText(tabText, 0.5f * perWidth * (2 * i + 1) - 0.5f * tabTextWidth, mHeight * 0.5f +
@@ -322,10 +330,13 @@ public class SwitchMultiButton extends View {
             float x = event.getX();
             for (int i = 0; i < mTabNum; i++) {
                 if (x > perWidth * i && x < perWidth * (i + 1)) {
-                    if (mSelectedTab == i) {
-                        return true;
+                    if (mSelectedTabs.contains(i)) {
+                        mSelectedTabs.remove(i);
+                    } else {
+                        mSelectedTabs.add(i);
                     }
-                    mSelectedTab = i;
+                    //mSelectedTabs.clear();
+
                     if (onSwitchListener != null) {
                         onSwitchListener.onSwitch(i, mTabTexts[i]);
                     }
@@ -338,26 +349,19 @@ public class SwitchMultiButton extends View {
 
     /*=========================================Interface=========================================*/
 
-    /**
-     * called when swtiched
-     */
-    public interface OnSwitchListener {
-        void onSwitch(int position, String tabText);
-    }
-
     public SwitchMultiButton setOnSwitchListener(@NonNull OnSwitchListener onSwitchListener) {
         this.onSwitchListener = onSwitchListener;
         return this;
     }
 
-    /*=========================================Set and Get=========================================*/
-
     /**
      * get position of selected tab
      */
-    public int getSelectedTab() {
-        return mSelectedTab;
+    public Integer[] getSelectedTabs() {
+        return mSelectedTabs.toArray(new Integer[mSelectedTabs.size()]);
     }
+
+    /*=========================================Set and Get=========================================*/
 
     /**
      * set selected tab
@@ -366,7 +370,7 @@ public class SwitchMultiButton extends View {
      * @return
      */
     public SwitchMultiButton setSelectedTab(int mSelectedTab) {
-        this.mSelectedTab = mSelectedTab;
+        this.mSelectedTabs.add(mSelectedTab);
         invalidate();
         if (onSwitchListener != null) {
             onSwitchListener.onSwitch(mSelectedTab, mTabTexts[mSelectedTab]);
@@ -374,8 +378,8 @@ public class SwitchMultiButton extends View {
         return this;
     }
 
-    public void clearSelection() {
-        this.mSelectedTab = -1;
+    public void clearSelectioned() {
+        this.mSelectedTabs.clear();
         invalidate();
     }
 
@@ -395,7 +399,6 @@ public class SwitchMultiButton extends View {
             throw new IllegalArgumentException("the size of tagTexts should greater then 1");
         }
     }
-    /*======================================save and restore======================================*/
 
     @Override
     protected Parcelable onSaveInstanceState() {
@@ -405,9 +408,10 @@ public class SwitchMultiButton extends View {
         bundle.putFloat("StrokeWidth", mStrokeWidth);
         bundle.putFloat("TextSize", mTextSize);
         bundle.putInt("SelectedColor", mSelectedColor);
-        bundle.putInt("SelectedTab", mSelectedTab);
+        bundle.putSerializable("SelectedTab", (HashSet<Integer>) mSelectedTabs);
         return bundle;
     }
+    /*======================================save and restore======================================*/
 
     @Override
     protected void onRestoreInstanceState(Parcelable state) {
@@ -417,10 +421,17 @@ public class SwitchMultiButton extends View {
             mStrokeWidth = bundle.getFloat("StrokeWidth");
             mTextSize = bundle.getFloat("TextSize");
             mSelectedColor = bundle.getInt("SelectedColor");
-            mSelectedTab = bundle.getInt("SelectedTab");
+            mSelectedTabs = (HashSet<Integer>) bundle.getSerializable("SelectedTab");
             super.onRestoreInstanceState(bundle.getParcelable("View"));
         } else {
             super.onRestoreInstanceState(state);
         }
+    }
+
+    /**
+     * called when swtiched
+     */
+    public interface OnSwitchListener {
+        void onSwitch(int position, String tabText);
     }
 }
