@@ -34,6 +34,7 @@ import android.view.MotionEvent;
 import android.view.View;
 
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Set;
 
 /**
@@ -378,9 +379,30 @@ public class SwitchMultiButton extends View {
         return this;
     }
 
-    public void clearSelectioned() {
+    public SwitchMultiButton unselectTab(int mSelectedTab) {
+        mSelectedTabs.remove(mSelectedTab);
+        invalidate();
+        if (onSwitchListener != null) {
+            onSwitchListener.onSwitch(mSelectedTab, mTabTexts[mSelectedTab]);
+        }
+        return this;
+    }
+
+    public void clearSelected() {
+        HashSet<Integer> cp = new HashSet(mSelectedTabs);
+
         this.mSelectedTabs.clear();
         invalidate();
+
+        Iterator<Integer> it = cp.iterator();
+
+        while (it.hasNext()) {
+            if (onSwitchListener != null) {
+                Integer i = it.next();
+                onSwitchListener.onSwitch(i, mTabTexts[i]);
+                it.remove();
+            }
+        }
     }
 
     /**
@@ -398,6 +420,15 @@ public class SwitchMultiButton extends View {
         } else {
             throw new IllegalArgumentException("the size of tagTexts should greater then 1");
         }
+    }
+
+    /**
+     * Return true if the button is checked, or false otherwise
+     * @param tabPosition a int value
+     * @return state a boolean value with the button state
+     */
+    public boolean getState(int tabPosition) {
+        return mSelectedTabs.contains(tabPosition);
     }
 
     @Override
