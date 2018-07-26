@@ -15,11 +15,11 @@
         android:layout_marginTop="14dp"
         android:paddingBottom="4dp"
         android:paddingTop="4dp"
+        app:allowMultiTab="false"
         app:selectedColor="#1c7626"
         app:strokeRadius="0dp"
         app:strokeWidth="1dp"
         app:textSize="14sp" />
-
 
     <lib.kingja.switchbutton.SwitchMultiButton
         android:id="@+id/switchmultibutton2"
@@ -86,13 +86,13 @@
             android:id="@+id/button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Unselect all" />
+            android:text="@string/unselect_all" />
 
         <Button
             android:id="@+id/button2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Select all" />
+            android:text="@string/select_all" />
     </LinearLayout>
 
 
@@ -100,6 +100,6 @@
         android:id="@+id/switch1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Toasts" />
+        android:text="@string/toasts" />
 
 </LinearLayout>
