@@ -8,5 +8,6 @@
         <attr name="selectedColor" format="color|reference" />
         <attr name="switchTabs" format="reference" />
         <attr name="typeface" format="string" />
+        <attr name="allowMultiTab" format="boolean" />
     </declare-styleable>
 </resources>

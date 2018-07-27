@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:app="http://schemas.android.com/apk/res-auto"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:gravity="center_horizontal"
-              android:orientation="vertical"
-              android:padding="16dp">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:padding="16dp">
 
     <lib.kingja.switchbutton.SwitchMultiButton
         android:id="@+id/switchmultibutton1"
@@ -15,12 +15,11 @@
         android:layout_marginTop="14dp"
         android:paddingBottom="4dp"
         android:paddingTop="4dp"
+        app:allowMultiTab="false"
         app:selectedColor="#1c7626"
-        app:selectedTab="1"
         app:strokeRadius="0dp"
         app:strokeWidth="1dp"
-        app:textSize="14sp"/>
-
+        app:textSize="14sp" />
 
     <lib.kingja.switchbutton.SwitchMultiButton
         android:id="@+id/switchmultibutton2"
@@ -36,7 +35,7 @@
         app:selectedTab="1"
         app:strokeRadius="5dp"
         app:strokeWidth="1dp"
-        app:textSize="14sp"/>
+        app:textSize="14sp" />
 
     <lib.kingja.switchbutton.SwitchMultiButton
         android:id="@+id/switchmultibutton3"
@@ -50,8 +49,8 @@
         app:strokeRadius="5dp"
         app:strokeWidth="1dp"
         app:switchTabs="@array/switch_tabs"
-        app:typeface="tielanti.ttf"
-        app:textSize="14sp"/>
+        app:textSize="14sp"
+        app:typeface="tielanti.ttf" />
 
     <lib.kingja.switchbutton.SwitchMultiButton
         android:id="@+id/switchmultibutton4"
@@ -62,7 +61,7 @@
         app:selectedColor="#e12251"
         app:strokeRadius="14dp"
         app:strokeWidth="2dp"
-        app:textSize="14sp"/>
+        app:textSize="14sp" />
 
     <lib.kingja.switchbutton.SwitchMultiButton
         android:id="@+id/switchmultibutton5"
@@ -75,6 +74,32 @@
         app:strokeWidth="1dp"
         app:switchTabs="@array/switch_country"
         app:textSize="14sp"
-        app:typeface="DeVinneTxtBT.ttf"/>
+        app:typeface="DeVinneTxtBT.ttf" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/unselect_all" />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/select_all" />
+    </LinearLayout>
+
+
+    <Switch
+        android:id="@+id/switch1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/toasts" />
 
 </LinearLayout>
