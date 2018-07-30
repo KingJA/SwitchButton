@@ -395,6 +395,18 @@ public class SwitchMultiButton extends View {
             throw new IllegalArgumentException("the size of tagTexts should greater then 1");
         }
     }
+
+    /**
+     * set Typeface for buttons from java code
+     *
+     * @param typeface
+     */
+    public void setTypeface(Typeface typeface) {
+        this.typeface = typeface;
+        mSelectedTextPaint.setTypeface(typeface);
+        mUnselectedTextPaint.setTypeface(typeface);
+        invalidate();
+    }
     /*======================================save and restore======================================*/
 
     @Override

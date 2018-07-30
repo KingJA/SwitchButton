@@ -17,6 +17,7 @@
 
 package com.kingja.switchbutton;
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
@@ -43,8 +44,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        ((SwitchMultiButton) findViewById(R.id.switchmultibutton1)).setText(tabTexts1).setOnSwitchListener(onSwitchListener);
+        Typeface typeface = Typeface.createFromAsset(getAssets(), "fonts/tielanti.ttf");
+        ((SwitchMultiButton) findViewById(R.id.switchmultibutton1)).setText(tabTexts1).setOnSwitchListener(onSwitchListener).setTypeface(typeface);
         ((SwitchMultiButton) findViewById(R.id.switchmultibutton2)).setText("点个Star", "狠心拒绝").setOnSwitchListener(onSwitchListener);
         ((SwitchMultiButton) findViewById(switchmultibutton3)).setOnSwitchListener(onSwitchListener).setSelectedTab(1);
         ((SwitchMultiButton) findViewById(R.id.switchmultibutton4)).setText(tabTexts4).setOnSwitchListener(onSwitchListener);
