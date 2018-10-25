@@ -6,6 +6,7 @@
         <attr name="textSize" format="dimension" />
         <attr name="selectedTab" format="integer" />
         <attr name="selectedColor" format="color|reference" />
+         <attr name="backgroundColor" format="color|reference" />
         <attr name="switchTabs" format="reference" />
         <attr name="typeface" format="string" />
     </declare-styleable>
