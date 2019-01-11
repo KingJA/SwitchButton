@@ -77,4 +77,18 @@
         app:textSize="14sp"
         app:typeface="DeVinneTxtBT.ttf"/>
 
+    <lib.kingja.switchbutton.SwitchMultiButton
+        android:id="@+id/switchmultibutton6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:padding="8dp"
+        app:selectedColor="#cf9c1a"
+        app:disableColor="#999999"
+        app:selectedTab="0"
+        app:strokeWidth="1dp"
+        app:switchTabs="@array/switch_yn"
+        app:strokeRadius="4dp"
+        app:textSize="14sp"/>
+
 </LinearLayout>

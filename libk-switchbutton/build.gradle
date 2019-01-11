@@ -1,6 +1,6 @@
 apply plugin: 'com.android.library'
 android {
-    compileSdkVersion rootProject.ext.compileSdkVersion
+    compileSdkVersion 25
     buildToolsVersion rootProject.ext.buildToolsVersion
 
     defaultConfig {
@@ -18,7 +18,7 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'
     compile "com.android.support:appcompat-v7:$rootProject.ext.supportVersion"
 }

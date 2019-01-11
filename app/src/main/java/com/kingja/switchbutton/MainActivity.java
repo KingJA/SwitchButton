@@ -25,7 +25,6 @@ import com.lib.kingja.switchbutton.R;
 
 import lib.kingja.switchbutton.SwitchMultiButton;
 
-import static com.lib.kingja.switchbutton.R.id.switchmultibutton3;
 
 /**
  * Description：A smart switchable button,support multiple tabs.
@@ -43,11 +42,14 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        ((SwitchMultiButton) findViewById(R.id.switchmultibutton1)).setText(tabTexts1).setOnSwitchListener(onSwitchListener);
-        ((SwitchMultiButton) findViewById(R.id.switchmultibutton2)).setText("点个Star", "狠心拒绝").setOnSwitchListener(onSwitchListener);
-        ((SwitchMultiButton) findViewById(switchmultibutton3)).setOnSwitchListener(onSwitchListener).setSelectedTab(1);
-        ((SwitchMultiButton) findViewById(R.id.switchmultibutton4)).setText(tabTexts4).setOnSwitchListener(onSwitchListener);
+        ((SwitchMultiButton) findViewById(R.id.switchmultibutton1)).setText(tabTexts1).setOnSwitchListener
+                (onSwitchListener);
+        ((SwitchMultiButton) findViewById(R.id.switchmultibutton2)).setText("点个Star", "狠心拒绝").setOnSwitchListener
+                (onSwitchListener);
+        ((SwitchMultiButton) findViewById(R.id.switchmultibutton3)).setOnSwitchListener(onSwitchListener).setSelectedTab(1);
+        ((SwitchMultiButton) findViewById(R.id.switchmultibutton4)).setText(tabTexts4).setOnSwitchListener
+                (onSwitchListener);
+        ((SwitchMultiButton) findViewById(R.id.switchmultibutton6)).setEnabled(false);
     }
 
     private SwitchMultiButton.OnSwitchListener onSwitchListener = new SwitchMultiButton.OnSwitchListener() {

@@ -1,3 +1,7 @@
+**v1.1.8**
+- support setEnable
+- support attr 'disableColor'
+
 **v1.1.6**
 - support typeface.[issues6](https://github.com/KingJA/SwitchButton/issues/6)
 
