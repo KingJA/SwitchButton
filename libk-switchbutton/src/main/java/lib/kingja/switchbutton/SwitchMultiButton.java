@@ -26,7 +26,6 @@ import android.graphics.RectF;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Parcelable;
-import android.support.annotation.NonNull;
 import android.text.TextPaint;
 import android.text.TextUtils;
 import android.util.AttributeSet;
@@ -368,7 +367,7 @@ public class SwitchMultiButton extends View {
         void onSwitch(int position, String tabText);
     }
 
-    public SwitchMultiButton setOnSwitchListener(@NonNull OnSwitchListener onSwitchListener) {
+    public SwitchMultiButton setOnSwitchListener(OnSwitchListener onSwitchListener) {
         this.onSwitchListener = onSwitchListener;
         return this;
     }
