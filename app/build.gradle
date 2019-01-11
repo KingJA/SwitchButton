@@ -21,12 +21,16 @@ android {
         abortOnError false
     }
     buildToolsVersion '26.0.2'
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'
     implementation project(':libk-switchbutton')
-//    compile 'lib.kingja.switchbutton:switchbutton:1.1.6'
+    //    compile 'lib.kingja.switchbutton:switchbutton:1.1.6'
     implementation "com.android.support:appcompat-v7:${SUPPORT_VERSION}"
 }
