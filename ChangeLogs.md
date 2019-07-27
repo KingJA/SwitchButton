@@ -1,3 +1,9 @@
+**v1.1.9**
+- Add attribute 'strokeColor'
+- Add attribute 'selectedTextColor'
+- Add attribute 'unSelectedTextColor'
+
+
 **v1.1.8**
 - support setEnable
 - support attr 'disableColor'
