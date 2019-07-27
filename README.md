@@ -21,7 +21,7 @@ A smart switchable button,support multiple tabs. CLICK THE ***STAR***  if it's u
 ![](https://github.com/KingJA/SwitchButton/blob/master/img/mark.png)
 ## Gradle
 ```xml
- implementation 'lib.kingja.switchbutton:switchbutton:1.1.8'
+ implementation 'lib.kingja.switchbutton:switchbutton:1.1.9'
 ```
 
 ## Usage
