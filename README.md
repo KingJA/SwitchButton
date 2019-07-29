@@ -10,6 +10,9 @@ A smart switchable button,support multiple tabs. CLICK THE ***STAR***  if it's u
 | strokeWidth | dimension      | app:strokeWidth="2dp" |
 | textSize | dimension      | app:textSize="16sp" |
 | selectedColor | color/reference     | app:selectedColor="@color/red" |
+| strokeColor | color/reference     | app:strokeColor="@color/red" |
+| selectedTextColor | color/reference     | app:selectedTextColor="@color/red" |
+| unSelectedTextColor | color/reference     | app:unSelectedTextColor="@color/red" |
 | disableColor | color/reference     | app:selectedColor="@color/gray" |
 | selectedTab | integer     | app:selectedTab="1" |
 | switchTabs | reference     | app:switchTabs="@array/switch_tabs" |
@@ -18,7 +21,7 @@ A smart switchable button,support multiple tabs. CLICK THE ***STAR***  if it's u
 ![](https://github.com/KingJA/SwitchButton/blob/master/img/mark.png)
 ## Gradle
 ```xml
- compile 'lib.kingja.switchbutton:switchbutton:1.1.8'
+ implementation 'com.github.hamzaahmedkhan:SwitchButton:v2.0.0'
 ```
 
 ## Usage
@@ -32,6 +35,9 @@ A smart switchable button,support multiple tabs. CLICK THE ***STAR***  if it's u
         app:strokeWidth="1dp"
         app:selectedTab="0"
         app:selectedColor="#eb7b00"
+        app:selectedTextColor="#ffffff"
+        app:strokeColor="#ffffff"
+        app:unSelectedTextColor="#ffffff"
         app:switchTabs="@array/switch_tabs"
         app:typeface="DeVinneTxtBT.ttf"
         app:textSize="14sp" />

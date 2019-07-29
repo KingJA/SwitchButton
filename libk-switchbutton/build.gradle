@@ -29,7 +29,7 @@ publish {
     artifactId = 'switchbutton'
     userOrg = 'kingja'
     groupId = 'lib.kingja.switchbutton'
-    publishVersion = '1.1.8'
+    publishVersion = '1.1.9'
     desc = 'A smart switchable button,support multiple tabs.'
     website = 'https://github.com/KingJA/SwitchButton'
 }

@@ -63,6 +63,9 @@ public class SwitchMultiButton extends View {
     private float mStrokeRadius;
     private float mStrokeWidth;
     private int mSelectedColor;
+    private int mStrokeColor;
+    private int mSelectedTextColor;
+    private int mUnSelectedTextColor;
     private int mDisableColor;
     private float mTextSize;
     private int mSelectedTab;
@@ -99,6 +102,9 @@ public class SwitchMultiButton extends View {
         mStrokeWidth = typedArray.getDimension(R.styleable.SwitchMultiButton_strokeWidth, STROKE_WIDTH);
         mTextSize = typedArray.getDimension(R.styleable.SwitchMultiButton_textSize, TEXT_SIZE);
         mSelectedColor = typedArray.getColor(R.styleable.SwitchMultiButton_selectedColor, SELECTED_COLOR);
+        mStrokeColor = typedArray.getColor(R.styleable.SwitchMultiButton_strokeColor, SELECTED_COLOR);
+        mSelectedTextColor = typedArray.getColor(R.styleable.SwitchMultiButton_selectedTextColor, SELECTED_COLOR);
+        mUnSelectedTextColor = typedArray.getColor(R.styleable.SwitchMultiButton_unSelectedTextColor, SELECTED_COLOR);
         mDisableColor = typedArray.getColor(R.styleable.SwitchMultiButton_disableColor, DISABLE_COLOR);
         mSelectedTab = typedArray.getInteger(R.styleable.SwitchMultiButton_selectedTab, SELECTED_TAB);
         String mTypeface = typedArray.getString(R.styleable.SwitchMultiButton_typeface);
@@ -119,7 +125,7 @@ public class SwitchMultiButton extends View {
     private void initPaint() {
         // round rectangle paint
         mStrokePaint = new Paint();
-        mStrokePaint.setColor(mSelectedColor);
+        mStrokePaint.setColor(mStrokeColor);
         mStrokePaint.setStyle(Paint.Style.STROKE);
         mStrokePaint.setAntiAlias(true);
         mStrokePaint.setStrokeWidth(mStrokeWidth);
@@ -131,12 +137,12 @@ public class SwitchMultiButton extends View {
         // selected text paint
         mSelectedTextPaint = new TextPaint(Paint.ANTI_ALIAS_FLAG);
         mSelectedTextPaint.setTextSize(mTextSize);
-        mSelectedTextPaint.setColor(0xffffffff);
+        mSelectedTextPaint.setColor(mSelectedTextColor);
         mStrokePaint.setAntiAlias(true);
         // unselected text paint
         mUnselectedTextPaint = new TextPaint(Paint.ANTI_ALIAS_FLAG);
         mUnselectedTextPaint.setTextSize(mTextSize);
-        mUnselectedTextPaint.setColor(mSelectedColor);
+        mUnselectedTextPaint.setColor(mUnSelectedTextColor);
         mStrokePaint.setAntiAlias(true);
         mTextHeightOffset = -(mSelectedTextPaint.ascent() + mSelectedTextPaint.descent()) * 0.5f;
         mFontMetrics = mSelectedTextPaint.getFontMetrics();
@@ -427,6 +433,9 @@ public class SwitchMultiButton extends View {
         bundle.putFloat("StrokeWidth", mStrokeWidth);
         bundle.putFloat("TextSize", mTextSize);
         bundle.putInt("SelectedColor", mSelectedColor);
+        bundle.putInt("StrokeColor", mStrokeColor);
+        bundle.putInt("SelectedTextColor", mSelectedTextColor);
+        bundle.putInt("UnSelectedTextColor", mUnSelectedTextColor);
         bundle.putInt("DisableColor", mDisableColor);
         bundle.putInt("SelectedTab", mSelectedTab);
         bundle.putBoolean("Enable", mEnable);
@@ -441,6 +450,9 @@ public class SwitchMultiButton extends View {
             mStrokeWidth = bundle.getFloat("StrokeWidth");
             mTextSize = bundle.getFloat("TextSize");
             mSelectedColor = bundle.getInt("SelectedColor");
+            mStrokeColor = bundle.getInt("StrokeColor");
+            mSelectedTextColor = bundle.getInt("SelectedTextColor");
+            mUnSelectedTextColor = bundle.getInt("UnSelectedTextColor");
             mDisableColor = bundle.getInt("DisableColor");
             mSelectedTab = bundle.getInt("SelectedTab");
             mEnable = bundle.getBoolean("Enable");
