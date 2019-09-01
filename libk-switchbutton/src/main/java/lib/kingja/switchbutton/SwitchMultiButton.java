@@ -250,7 +250,7 @@ public class SwitchMultiButton extends View {
     }
 
     /**
-     * draw right path
+     * draw left path
      *
      * @param canvas
      * @param left
@@ -270,7 +270,7 @@ public class SwitchMultiButton extends View {
     }
 
     /**
-     * draw left path
+     * draw right path
      *
      * @param canvas
      * @param top
